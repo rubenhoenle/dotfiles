@@ -1,7 +1,3 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 { config, pkgs, ... }:
 
 {
@@ -80,16 +76,27 @@
   users.users.ruben = {
     isNormalUser = true;
     description = "Ruben";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [
     #  thunderbird
     ];
-
-    # homemanager stuff
+    shell = pkgs.zsh;
   };
+
+  programs.zsh.enable = true;
+
+  programs.dconf.enable = true;
 
   # flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+  # docker
+  virtualisation.docker.enable = true;
+  virtualisation.docker.rootless = {
+    enable = true;
+    setSocketVariable = true;
+  };
+
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -97,7 +104,45 @@
      wget
      vim
      curl
+     zsh
+   ];
+
+  # disable gnome apps
+  # https://discourse.nixos.org/t/howto-disable-most-gnome-default-applications-and-what-they-are/13505 
+  environment.gnome.excludePackages = with pkgs.gnome; [
+    #baobab      # disk usage analyzer
+    cheese      # photo booth
+    #eog         # image viewer
+    epiphany    # web browser
+    #gedit       # text editor
+    #simple-scan # document scanner
+    #totem       # video player
+    yelp        # help viewer
+    #evince      # document viewer
+    #file-roller # archive manager
+    geary       # email client
+    seahorse    # password manager
+
+    # these should be self explanatory
+    #gnome-calculator 
+    gnome-calendar 
+    gnome-characters 
+    #gnome-clocks 
+    gnome-contacts
+    gnome-font-viewer 
+    gnome-logs 
+    gnome-maps 
+    gnome-music 
+    #gnome-photos 
+    #gnome-screenshot
+    #gnome-system-monitor 
+    gnome-weather 
+    #gnome-disk-utility 
+    pkgs.gnome-connections
   ];
+
+  console.enable = false;
+
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
