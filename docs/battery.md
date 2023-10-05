@@ -1,0 +1,1 @@
+export var_bat=$(cat /sys/class/power_supply/BAT0/capacity | grep -Po "\\d+"); export var_host=$(hostname); test "$var_bat" -le 100 && curl -H ta:battery -L -d "Battery of $var_host is at $var_bat %" ntfy.hoenle.xyz/test

@@ -4,24 +4,29 @@
       spotify
       signal-desktop
       vscode
-      #vscodium
       yubioath-flutter
-      minecraft
       restic
       screenfetch
       asciiquarium
       cmatrix
       nix-zsh-completions
-      adoptopenjdk-bin
-      gtk3
+      #adoptopenjdk-bin
+      #gtk3
       gnome.gnome-terminal
       libreoffice
       vlc
       xclip
+      cryptomator
 
+      # python
       python311
       python311Packages.pandas
       python311Packages.matplotlib
+
+      # games
+      #minecraft-launcher
+      prismlauncher
+      openarena
     ];
 
     home.stateVersion = "23.05";
@@ -40,6 +45,8 @@
       ./git.nix
       ./vim.nix
       ./zsh.nix
+
+      ./neovim/neovim.nix
 
       # gnome configurations
       ./dconf.nix

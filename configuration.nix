@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, agenix, ... }:
 
 {
   # Bootloader.
@@ -83,8 +83,10 @@
     shell = pkgs.zsh;
   };
 
+  # for yubico authenticator
+  services.pcscd.enable = true;
+  
   programs.zsh.enable = true;
-
   programs.dconf.enable = true;
 
   # flakes
@@ -105,6 +107,10 @@
      vim
      curl
      zsh
+
+     # agenix
+     agenix
+     #inputs.agenix.packages."${system}".default
    ];
 
   # disable gnome apps
@@ -143,6 +149,11 @@
 
   console.enable = false;
 
+  imports = [
+    ./modules/modules.nix
+    ./jobs/jobs.nix
+    ./modules/secrets.nix
+  ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

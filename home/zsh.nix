@@ -7,6 +7,7 @@
         c = "clear";
         update = "sudo nixos-rebuild switch --flake .#tantive4";
         xclip = "xclip -selection c";
+        ntfy = "curl -L ntfy.hoenle.xyz/test -d";
       };
       enableCompletion = true;
 
