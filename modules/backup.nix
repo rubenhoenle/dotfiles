@@ -7,7 +7,7 @@ in
   options.ruben.backup = {
 
     # TODO: seems like we have to do something like anywhere else: ruben.backups.enable = true;
-    
+
     enable = mkEnableOption "restic backup";
   };
   config = mkIf (cfg.enable)
@@ -20,7 +20,7 @@ in
           #s3SecretAccessKey = config.age.secrets.backblazeB2ResticSecretAccessKey.path;
 
           s3SecretsEnvironmentFile = config.age.secrets.backblazeB2ResticS3EnvironmentSecrets.path;
-          
+
           localRepo = "/run/media/ruben/backup-drive/restic";
           resticPasswordFile = config.age.secrets.resticPassword.path;
           backupPaths = "/home/ruben";

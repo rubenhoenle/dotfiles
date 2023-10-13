@@ -10,4 +10,6 @@
 
 `fwupdmgr`
 
+## Code formatting
+`nix fmt`
 

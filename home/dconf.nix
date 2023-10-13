@@ -34,10 +34,10 @@
       # define which apps are pinned to the dock 
       "org/gnome/shell" = {
         favorite-apps = [
-          "firefox.desktop" 
-          "org.gnome.Calendar.desktop" 
-          "org.gnome.Nautilus.desktop" 
-          "org.gnome.Terminal.desktop" 
+          "firefox.desktop"
+          "org.gnome.Calendar.desktop"
+          "org.gnome.Nautilus.desktop"
+          "org.gnome.Terminal.desktop"
           "signal-desktop.desktop"
         ];
       };

@@ -78,14 +78,14 @@
     description = "Ruben";
     extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [
-    #  thunderbird
+      #  thunderbird
     ];
     shell = pkgs.zsh;
   };
 
   # for yubico authenticator
   services.pcscd.enable = true;
-  
+
   programs.zsh.enable = true;
   programs.dconf.enable = true;
 
@@ -103,46 +103,46 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-     wget
-     vim
-     curl
-     zsh
+    wget
+    vim
+    curl
+    zsh
 
-     # agenix
-     agenix
-     #inputs.agenix.packages."${system}".default
-   ];
+    # agenix
+    agenix
+    #inputs.agenix.packages."${system}".default
+  ];
 
   # disable gnome apps
   # https://discourse.nixos.org/t/howto-disable-most-gnome-default-applications-and-what-they-are/13505 
   environment.gnome.excludePackages = with pkgs.gnome; [
     #baobab      # disk usage analyzer
-    cheese      # photo booth
+    cheese # photo booth
     #eog         # image viewer
-    epiphany    # web browser
+    epiphany # web browser
     #gedit       # text editor
     #simple-scan # document scanner
     #totem       # video player
-    yelp        # help viewer
+    yelp # help viewer
     #evince      # document viewer
     #file-roller # archive manager
-    geary       # email client
-    seahorse    # password manager
+    geary # email client
+    seahorse # password manager
 
     # these should be self explanatory
     #gnome-calculator 
-    gnome-calendar 
-    gnome-characters 
+    gnome-calendar
+    gnome-characters
     #gnome-clocks 
     gnome-contacts
-    gnome-font-viewer 
-    gnome-logs 
-    gnome-maps 
-    gnome-music 
+    gnome-font-viewer
+    gnome-logs
+    gnome-maps
+    gnome-music
     #gnome-photos 
     #gnome-screenshot
     #gnome-system-monitor 
-    gnome-weather 
+    gnome-weather
     #gnome-disk-utility 
     pkgs.gnome-connections
   ];
