@@ -3,6 +3,9 @@
 ## Backups
 I use restic for my backups. The backups are stored on Backblaze B2 via the S3 API and on a local harddrive.
 
+### Checking the status of the backup service
+`systemctl status --user restic_backup.service`
+
 ### Initializing the restic repository
 ``` bash
 export AWS_DEFAULT_REGION=eu-central-003

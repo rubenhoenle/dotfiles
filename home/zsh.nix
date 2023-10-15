@@ -5,7 +5,8 @@
       ll = "ls -lisa";
       s = "screenfetch";
       c = "clear";
-      update = "sudo nixos-rebuild switch --flake .#tantive4";
+      update = "sudo nixos-rebuild switch --flake .#";
+      update-boot = "sudo nixos-rebuild boot --flake .#";
       xclip = "xclip -selection c";
       ntfy = "curl -L ntfy.hoenle.xyz/test -d";
     };
