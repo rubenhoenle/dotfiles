@@ -11,10 +11,10 @@
   };
 
   # Enable swap on luks
-  boot.initrd.luks.devices."luks-1479230d-a028-45d4-a769-191948406264".device = "/dev/disk/by-uuid/1479230d-a028-45d4-a769-191948406264";
-  boot.initrd.luks.devices."luks-1479230d-a028-45d4-a769-191948406264".keyFile = "/crypto_keyfile.bin";
+  boot.initrd.luks.devices."luks-6d3659bf-9d20-42ad-9fe5-43395cdb683f".device = "/dev/disk/by-uuid/6d3659bf-9d20-42ad-9fe5-43395cdb683f";
+  boot.initrd.luks.devices."luks-6d3659bf-9d20-42ad-9fe5-43395cdb683f".keyFile = "/crypto_keyfile.bin";
 
-  networking.hostName = "deathstar"; # Define your hostname.
+  networking.hostName = "millenium-falcon"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
