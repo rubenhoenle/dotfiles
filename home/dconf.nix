@@ -14,6 +14,9 @@
         new-tab = "<Primary>T";
         close-tab = "<Primary>Q";
       };
+      "org/gnome/terminal/legacy" = {
+        theme-variant = "dark";
+      };
       # gnome shortcuts
       "org/gnome/desktop/wm/keybindings" = {
         toggle-fullscreen = "F11";

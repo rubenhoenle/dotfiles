@@ -1,6 +1,5 @@
 { config, pkgs, ... }: {
   home.packages = with pkgs; [
-    firefox
     spotify
     signal-desktop
     vscode
@@ -16,7 +15,10 @@
     libreoffice
     vlc
     xclip
+    htop
     cryptomator
+    syncthing
+
 
     # python
     python311
@@ -27,6 +29,11 @@
     #minecraft-launcher
     prismlauncher
     openarena
+
+    pinta
+    shutter
+
+    glow
   ];
 
   home.stateVersion = "23.05";
@@ -42,11 +49,14 @@
   programs.vim.defaultEditor = true;
 
   imports = [
+    ./firefox.nix
     ./git.nix
     ./vim.nix
     ./zsh.nix
 
     ./neovim/neovim.nix
+
+    ./default-applications.nix
 
     # gnome configurations
     ./dconf.nix

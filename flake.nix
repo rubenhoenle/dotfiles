@@ -34,11 +34,11 @@
       checks.${system}.formatter = treefmtEval.config.build.check self;
 
       nixosConfigurations = {
-        tantive4 = lib.nixosSystem {
+        deathstar = lib.nixosSystem {
           inherit system pkgs;
           modules = [
             ./configuration.nix
-            ./hardware-configuration.nix
+            ./hardware/thinkpad-l590.nix
             {
               ruben.backup.enable = true;
             }

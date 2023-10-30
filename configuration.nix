@@ -5,7 +5,16 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "tantive4"; # Define your hostname.
+  # Setup keyfile
+  boot.initrd.secrets = {
+    "/crypto_keyfile.bin" = null;
+  };
+
+  # Enable swap on luks
+  boot.initrd.luks.devices."luks-1479230d-a028-45d4-a769-191948406264".device = "/dev/disk/by-uuid/1479230d-a028-45d4-a769-191948406264";
+  boot.initrd.luks.devices."luks-1479230d-a028-45d4-a769-191948406264".keyFile = "/crypto_keyfile.bin";
+
+  networking.hostName = "deathstar"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -169,8 +178,8 @@
   # services.openssh.enable = true;
 
   # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
+  networking.firewall.allowedTCPPorts = [ 25565 ];
+  networking.firewall.allowedUDPPorts = [ 25565 ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 

@@ -4,7 +4,12 @@
     userName = "Ruben Hoenle";
     userEmail = "git@hoenle.xyz";
     extraConfig = {
-      init = { defaultBranch = "main"; };
+      init = {
+        defaultBranch = "main";
+      };
+      push = {
+        autoSetupRemote = true;
+      };
     };
   };
 }
