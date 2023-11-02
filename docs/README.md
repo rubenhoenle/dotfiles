@@ -6,6 +6,8 @@ I use restic for my backups. The backups are stored on Backblaze B2 via the S3 A
 ### Checking the status of the backup service
 `systemctl status --user restic_backup.service`
 
+`systemctl status --user restic_backup_to_harddrive.service`
+
 ### Local harddrive backup
 #### Restoring the backups of the local harddrive
 [restic documentation for restoring](https://restic.readthedocs.io/en/latest/050_restore.html)

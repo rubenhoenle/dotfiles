@@ -16,12 +16,8 @@ in
         let
           s3DefaultRegion = "eu-central-003";
           remoteRepo = "s3:https://s3.eu-central-003.backblazeb2.com/nixos-restic-backup";
-          #s3AccessKeyId = config.age.secrets.backblazeB2ResticSecretKeyId.path;
-          #s3SecretAccessKey = config.age.secrets.backblazeB2ResticSecretAccessKey.path;
-
           s3SecretsEnvironmentFile = config.age.secrets.backblazeB2ResticS3EnvironmentSecrets.path;
-
-          localRepo = "/run/media/ruben/backup-drive/restic";
+          localRepo = "/run/media/ruben/SAMSUNG/restic-nixos";
           resticPasswordFile = config.age.secrets.resticPassword.path;
           backupPaths = "/home/ruben";
           backupExcludes = "--exclude-caches --exclude=\"/home/ruben/cache\" --exclude=\"/home/ruben/.local/\"";
@@ -37,10 +33,6 @@ in
           restic_backup = {
             serviceConfig = {
               Type = "oneshot";
-              #Environment = [
-              #  "AWS_ACCESS_KEY_ID=${s3AccessKeyId}"
-              #  "AWS_SECRET_ACCESS_KEY=${s3SecretAccessKey}"
-              #];
               EnvironmentFile = "${s3SecretsEnvironmentFile}";
               ExecStart = "${pkgs.restic}/bin/restic backup -r ${remoteRepo} ${backupExcludes} -o s3.region=${s3DefaultRegion} --password-file ${resticPasswordFile} --one-file-system --tag systemd.timer ${backupPaths}";
               ExecStartPost = "${pkgs.restic}/bin/restic forget -r ${remoteRepo} ${backupExcludes} -o s3.region=${s3DefaultRegion} --password-file ${resticPasswordFile} --tag systemd.timer --group-by \"paths,tags\" --keep-hourly ${keep.hourly} --keep-daily ${keep.daily} --keep-weekly ${keep.weekly} --keep-monthly ${keep.monthly} --keep-yearly ${keep.yearly}";
@@ -51,9 +43,10 @@ in
             ];
           };
           restic_backup_to_harddrive = {
-            after = [ "run-media-jgero-backup\\x2ddrive.mount" ];
-            requires = [ "run-media-jgero-backup\\x2ddrive.mount" ];
-            wantedBy = [ "run-media-jgero-backup\\x2ddrive.mount" ];
+            # systemctl list-units --type=mount
+            after = [ "run-media-ruben-SAMSUNG.mount" ];
+            requires = [ "run-media-ruben-SAMSUNG.mount" ];
+            wantedBy = [ "run-media-ruben-SAMSUNG.mount" ];
             serviceConfig = {
               ExecStart = "${pkgs.restic}/bin/restic backup -r ${localRepo} --password-file ${resticPasswordFile} --one-file-system --tag systemd.timer ${backupPaths}";
             };
