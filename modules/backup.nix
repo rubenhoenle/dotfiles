@@ -35,7 +35,7 @@ in
               Type = "oneshot";
               EnvironmentFile = "${s3SecretsEnvironmentFile}";
               ExecStart = "${pkgs.restic}/bin/restic backup -r ${remoteRepo} ${backupExcludes} -o s3.region=${s3DefaultRegion} --password-file ${resticPasswordFile} --one-file-system --tag systemd.timer ${backupPaths}";
-              ExecStartPost = "${pkgs.restic}/bin/restic forget -r ${remoteRepo} ${backupExcludes} -o s3.region=${s3DefaultRegion} --password-file ${resticPasswordFile} --tag systemd.timer --group-by \"paths,tags\" --keep-hourly ${keep.hourly} --keep-daily ${keep.daily} --keep-weekly ${keep.weekly} --keep-monthly ${keep.monthly} --keep-yearly ${keep.yearly}";
+              ExecStartPost = "${pkgs.restic}/bin/restic forget -r ${remoteRepo} -o s3.region=${s3DefaultRegion} --password-file ${resticPasswordFile} --tag systemd.timer --group-by \"paths,tags\" --keep-hourly ${keep.hourly} --keep-daily ${keep.daily} --keep-weekly ${keep.weekly} --keep-monthly ${keep.monthly} --keep-yearly ${keep.yearly}";
             };
             onFailure = [ "restic_unlock.service" ];
             path = [
@@ -51,7 +51,7 @@ in
               ExecStart = "${pkgs.restic}/bin/restic backup -r ${localRepo} --password-file ${resticPasswordFile} --one-file-system --tag systemd.timer ${backupPaths}";
             };
             unitConfig = {
-              OnSuccess = "restic_backup.service";
+              #OnSuccess = "restic_backup.service";
             };
           };
           restic_prune = {
