@@ -5,7 +5,6 @@
       # shortcuts
       ll = "ls -lisa";
       s = "screenfetch";
-      c = "clear";
 
       # nixos update commands
       update = "sudo nixos-rebuild switch --flake .#";
