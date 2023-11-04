@@ -33,6 +33,8 @@
     pinta
     shutter
 
+    inkscape
+
     glow
   ];
 
