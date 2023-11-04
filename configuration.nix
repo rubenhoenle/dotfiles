@@ -5,24 +5,11 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  # Setup keyfile
-  boot.initrd.secrets = {
-    "/crypto_keyfile.bin" = null;
-  };
-
-  # Enable swap on luks
-  boot.initrd.luks.devices."luks-6d3659bf-9d20-42ad-9fe5-43395cdb683f".device = "/dev/disk/by-uuid/6d3659bf-9d20-42ad-9fe5-43395cdb683f";
-  boot.initrd.luks.devices."luks-6d3659bf-9d20-42ad-9fe5-43395cdb683f".keyFile = "/crypto_keyfile.bin";
-
-  networking.hostName = "millenium-falcon"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Enable networking
-  networking.networkmanager.enable = true;
 
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
@@ -116,10 +103,7 @@
     vim
     curl
     zsh
-
-    # agenix
     agenix
-    #inputs.agenix.packages."${system}".default
   ];
 
   # disable gnome apps
@@ -159,7 +143,6 @@
   console.enable = false;
 
   imports = [
-    ./modules/modules.nix
     ./jobs/jobs.nix
     ./modules/secrets.nix
   ];

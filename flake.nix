@@ -4,6 +4,7 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/release-23.05";
     home-manager.url = "github:nix-community/home-manager/release-23.05";
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     # agenix for encrypting secrets
     agenix = {
@@ -18,7 +19,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, agenix, treefmt-nix, ... }:
+  outputs = { self, nixpkgs, home-manager, agenix, treefmt-nix, nixos-hardware, ... }:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
@@ -33,27 +34,29 @@
       formatter.${system} = treefmtEval.config.build.wrapper;
       checks.${system}.formatter = treefmtEval.config.build.check self;
 
-      nixosConfigurations = {
-        millenium-falcon = lib.nixosSystem {
-          inherit system pkgs;
-          modules = [
-            ./configuration.nix
-            ./hardware/thinkpad-t14s.nix
-            {
-              ruben.backup.enable = true;
-            }
-            agenix.nixosModules.default
-            {
-              _module.args.agenix = agenix.packages.${system}.default;
-            }
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              #home-manager.useUserPackages = true;
-              home-manager.users.ruben = import ./home/home.nix;
-            }
-          ];
-        };
-      };
+      nixosConfigurations = builtins.listToAttrs (
+        builtins.map
+          (host: {
+            name = host.name;
+            value = lib.nixosSystem {
+              inherit system pkgs;
+              modules = [
+                ./configuration.nix
+                agenix.nixosModules.default
+                {
+                  _module.args.agenix = agenix.packages.${system}.default;
+                }
+                ./modules/modules.nix
+                home-manager.nixosModules.home-manager
+                {
+                  home-manager.useGlobalPkgs = true;
+                  #home-manager.useUserPackages = true;
+                  home-manager.users.ruben = import ./home/home.nix;
+                }
+              ] ++ host.nixosModules;
+            };
+          })
+          (import ./hosts.nix { inherit nixos-hardware; })
+      );
     };
 }
