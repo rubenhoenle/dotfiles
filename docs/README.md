@@ -1,5 +1,8 @@
 # Docs
 
+## Hibernation
+Don't forget to set the proper sleep state option (`Linux`) in the BIOS in menu `Config -> Power`.
+
 ## Backups
 I use restic for my backups. The backups are stored on Backblaze B2 via the S3 API and on a local harddrive.
 

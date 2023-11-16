@@ -1,41 +1,37 @@
 { config, pkgs, ... }: {
   home.packages = with pkgs; [
+    # desktop applications
     spotify
     signal-desktop
-    vscode
     yubioath-flutter
+    gnome.gnome-terminal
+    libreoffice
+    cryptomator
+    syncthing
+    pinta
+    shutter
+    vlc
+    inkscape
+
+    curl
+
+    # development
+    vscode
+    insomnia
+
     restic
     screenfetch
+    neofetch
     asciiquarium
     cmatrix
     nix-zsh-completions
-    #adoptopenjdk-bin
-    #gtk3
-    gnome.gnome-terminal
-    libreoffice
-    vlc
     xclip
     htop
-    cryptomator
-    syncthing
-
-
-    # python
-    python311
-    python311Packages.pandas
-    python311Packages.matplotlib
+    glow
 
     # games
-    #minecraft-launcher
     prismlauncher
     openarena
-
-    pinta
-    shutter
-
-    inkscape
-
-    glow
   ];
 
   home.stateVersion = "23.05";
@@ -63,5 +59,7 @@
     # gnome configurations
     ./dconf.nix
   ];
+
+
 }
 

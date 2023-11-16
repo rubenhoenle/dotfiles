@@ -33,6 +33,10 @@
       {
         ruben.network.hostname = "millenium-falcon";
         ruben.backup.enable = true;
+        ruben.battery.notifications = {
+          enable = true;
+          percentage = 15;
+        };
 
         # Setup keyfile
         boot.initrd.secrets = {

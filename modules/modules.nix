@@ -5,6 +5,8 @@
     ./firmware.nix
     ./network.nix
     ./printing.nix
+
+    ./paperless.nix
   ];
 
 }
