@@ -44,7 +44,10 @@
   programs.chromium.enable = true;
 
   # make vim the default editor
-  programs.vim.defaultEditor = true;
+  #programs.vim.defaultEditor = true;
+  programs.neovim.defaultEditor = true;
+
+  xdg.enable = true;
 
   imports = [
     ./firefox.nix
