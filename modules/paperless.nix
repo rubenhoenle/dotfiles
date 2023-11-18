@@ -1,16 +1,18 @@
-{ config, pkgs, inputs, agenix, ... }:
+{ config, ... }:
 let
-  pwFile = pkgs.writeText "paperlessPw" "admin";
+  paperlessDir = "/home/ruben/services/nix/paperless";
+  passwordFile = config.age.secrets.paperlessPassword.path;
 in
 {
   services.paperless = {
     enable = true;
     address = "0.0.0.0";
     port = 58080;
-    passwordFile = pwFile;
+    passwordFile = passwordFile;
     user = "ruben";
-    dataDir = "/home/ruben/services/nix/paperless/data";
-    mediaDir = "/home/ruben/services/nix/paperless/media";
+    dataDir = "${paperlessDir}/data";
+    mediaDir = "${paperlessDir}/media";
+    consumptionDir = "${paperlessDir}/input";
     extraConfig.PAPERLESS_OCR_LANGUAGE = "deu+eng";
     extraConfig.PAPERLESS_ADMIN_USER = "ruben";
   };
