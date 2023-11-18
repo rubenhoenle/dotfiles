@@ -1,7 +1,4 @@
 { config, pkgs, inputs, agenix, ... }:
-let
-  pwFile = pkgs.writeText "paperlessPw" "admin";
-in
 {
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -15,18 +12,6 @@ in
 
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
-
-
-  #services.paperless = {
-  #  enable = true;
-  #  address = "0.0.0.0";
-  #  port = 58080;
-  #  passwordFile = pwFile;
-  #  extraConfig.PAPERLESS_OCR_LANGUAGE = "deu+eng";
-  #};
-  #systemd.services.paperless-scheduler.after = ["var-lib-paperless.mount"];
-  #systemd.services.paperless-consumer.after = ["var-lib-paperless.mount"];
-  #systemd.services.paperless-web.after = ["var-lib-paperless.mount"];
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";

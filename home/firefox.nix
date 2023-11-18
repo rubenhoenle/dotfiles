@@ -4,6 +4,7 @@
     enable = true;
     package = pkgs.wrapFirefox pkgs.firefox-unwrapped {
       extraPolicies = {
+        OverrideFirstRunPage = "";
         CaptivePortal = false;
         DisableFirefoxStudies = true;
         DisablePocket = true;
@@ -13,6 +14,13 @@
         OfferToSaveLogins = false;
         OfferToSaveLoginsDefault = false;
         PasswordManagerEnabled = false;
+        ExtensionSettings = {
+          "uBlock0@raymondhill.net" = {
+            installation_mode = "force_installed";
+            install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
+          };
+        };
+
         FirefoxHome = {
           Search = true;
           Pocket = false;
@@ -23,6 +31,9 @@
         UserMessaging = {
           ExtensionRecommendations = false;
           SkipOnboarding = true;
+        };
+        SearchEngines = {
+          Default = "ddg";
         };
       };
     };
