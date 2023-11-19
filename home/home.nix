@@ -41,7 +41,7 @@
 
   programs.home-manager.enable = true;
   programs.bash.enable = true;
-  programs.chromium.enable = true;
+  #programs.chromium.enable = true;
 
   # make vim the default editor
   #programs.vim.defaultEditor = true;
