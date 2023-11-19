@@ -1,22 +1,31 @@
-{ config, ... }:
+{ config, lib, ... }:
+with lib;
 let
+  cfg = config.ruben.paperless;
   paperlessDir = "/home/ruben/services/nix/paperless";
   passwordFile = config.age.secrets.paperlessPassword.path;
 in
 {
-  services.paperless = {
-    enable = true;
-    address = "0.0.0.0";
-    port = 58080;
-    passwordFile = passwordFile;
-    user = "ruben";
-    dataDir = "${paperlessDir}/data";
-    mediaDir = "${paperlessDir}/media";
-    consumptionDir = "${paperlessDir}/input";
-    extraConfig.PAPERLESS_OCR_LANGUAGE = "deu+eng";
-    extraConfig.PAPERLESS_ADMIN_USER = "ruben";
+  options.ruben.paperless = {
+    enable = mkEnableOption "paperless service";
   };
-  systemd.services.paperless-scheduler.after = [ "var-lib-paperless.mount" ];
-  systemd.services.paperless-consumer.after = [ "var-lib-paperless.mount" ];
-  systemd.services.paperless-web.after = [ "var-lib-paperless.mount" ];
+
+  config = mkIf (cfg.enable)
+    {
+      services.paperless = {
+        enable = true;
+        address = "0.0.0.0";
+        port = 58080;
+        passwordFile = passwordFile;
+        user = "ruben";
+        dataDir = "${paperlessDir}/data";
+        mediaDir = "${paperlessDir}/media";
+        consumptionDir = "${paperlessDir}/input";
+        extraConfig.PAPERLESS_OCR_LANGUAGE = "deu+eng";
+        extraConfig.PAPERLESS_ADMIN_USER = "ruben";
+      };
+      systemd.services.paperless-scheduler.after = [ "var-lib-paperless.mount" ];
+      systemd.services.paperless-consumer.after = [ "var-lib-paperless.mount" ];
+      systemd.services.paperless-web.after = [ "var-lib-paperless.mount" ];
+    };
 }
