@@ -21,8 +21,12 @@ in
         dataDir = "${paperlessDir}/data";
         mediaDir = "${paperlessDir}/media";
         consumptionDir = "${paperlessDir}/input";
-        extraConfig.PAPERLESS_OCR_LANGUAGE = "deu+eng";
-        extraConfig.PAPERLESS_ADMIN_USER = "ruben";
+        extraConfig = {
+          PAPERLESS_OCR_LANGUAGE = "deu+eng";
+          PAPERLESS_ADMIN_USER = "ruben";
+          PAPERLESS_TASK_WORKERS = 2;
+          PAPERLESS_THREADS_PER_WORKER = 4;
+        };
       };
       systemd.services.paperless-scheduler.after = [ "var-lib-paperless.mount" ];
       systemd.services.paperless-consumer.after = [ "var-lib-paperless.mount" ];
