@@ -28,8 +28,8 @@ in
           PAPERLESS_THREADS_PER_WORKER = 4;
         };
       };
-      systemd.services.paperless-scheduler.after = [ "var-lib-paperless.mount" ];
-      systemd.services.paperless-consumer.after = [ "var-lib-paperless.mount" ];
-      systemd.services.paperless-web.after = [ "var-lib-paperless.mount" ];
+      #systemd.services.paperless-scheduler.after = [ "var-lib-paperless.mount" ];
+      #systemd.services.paperless-consumer.after = [ "var-lib-paperless.mount" ];
+      #systemd.services.paperless-web.after = [ "var-lib-paperless.mount" ];
     };
 }

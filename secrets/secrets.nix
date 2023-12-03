@@ -6,4 +6,6 @@ in
   "restic-password.age".publicKeys = [ deathstar millenium-falcon ];
   "backblaze-b2-restic-s3-secrets.age".publicKeys = [ deathstar millenium-falcon ];
   "paperless-password.age".publicKeys = [ deathstar millenium-falcon ];
+  "wireguard-private-key.age".publicKeys = [ millenium-falcon ];
+  "wireguard-preshared-key.age".publicKeys = [ millenium-falcon ];
 }

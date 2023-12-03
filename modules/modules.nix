@@ -7,6 +7,7 @@
     ./printing.nix
 
     ./paperless.nix
+    ./wireguard.nix
   ];
 
 }

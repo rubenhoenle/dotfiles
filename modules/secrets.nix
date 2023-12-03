@@ -15,4 +15,14 @@
     owner = "ruben";
     group = "users";
   };
+  age.secrets.wireguardPrivateKey = {
+    file = ../secrets/wireguard-private-key.age;
+    owner = "ruben";
+    group = "users";
+  };
+  age.secrets.wireguardPresharedKey = {
+    file = ../secrets/wireguard-preshared-key.age;
+    owner = "ruben";
+    group = "users";
+  };
 }
