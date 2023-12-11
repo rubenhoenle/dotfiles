@@ -34,7 +34,7 @@
         ruben.network.hostname = "millenium-falcon";
         #ruben.paperless.enable = true;
         ruben.backup.enable = true;
-        ruben.wireguard.enable = true;
+        #ruben.wireguard.enable = true;
         ruben.battery.notifications = {
           enable = true;
           percentage = 15;
