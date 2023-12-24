@@ -1,4 +1,5 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, ... }:
+{
   home.packages = with pkgs; [
     # desktop applications
     spotify
@@ -34,7 +35,7 @@
     openarena
   ];
 
-  home.stateVersion = "23.05";
+  home.stateVersion = "23.11";
 
   home.username = "ruben";
   home.homeDirectory = "/home/ruben";

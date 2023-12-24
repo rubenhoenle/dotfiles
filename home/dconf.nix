@@ -69,8 +69,8 @@
       "org/gnome/desktop/background" = {
         color-shading-type = "solid";
         picture-options = "zoom";
-        picture-uri = "file://${wallpaper.macos.purple}";
-        picture-uri-dark = "file://${wallpaper.macos.purple}";
+        picture-uri = "file://${wallpaper.xmas.grogu}";
+        picture-uri-dark = "file://${wallpaper.xmas.grogu}";
         primary-color = "#3366ff";
         secondary-color = "#000000";
       };
