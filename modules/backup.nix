@@ -28,6 +28,16 @@ in
           };
         in
         {
+          restic_init = {
+            serviceConfig = {
+              Type = "oneshot";
+              EnvironmentFile = "${s3SecretsEnvironmentFile}";
+              ExecStart = "${pkgs.restic}/bin/restic init -r ${remoteRepo} -o s3.region=${s3DefaultRegion} --password-file ${resticPasswordFile}";
+            };
+            path = [
+              pkgs.openssh
+            ];
+          };
           restic_backup = {
             serviceConfig = {
               Type = "oneshot";

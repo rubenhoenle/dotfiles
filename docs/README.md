@@ -9,6 +9,8 @@ I use restic for my backups. The backups are stored on Backblaze B2 via the S3 A
 ### Checking the status of the backup service
 `systemctl status --user restic_backup.service`
 
+`journalctl --user -xeu restic_backup.service`
+
 `systemctl status --user restic_backup_to_harddrive.service`
 
 ### Local harddrive backup
@@ -23,13 +25,7 @@ restic restore latest --target /tmp/restore
 
 ### Remote S3 backup
 #### Initializing the S3 restic repository
-``` bash
-export AWS_DEFAULT_REGION=eu-central-003
-export RESTIC_REPOSITORY=s3:https://s3.eu-central-003.backblazeb2.com/nixos-restic-backup
-export AWS_ACCESS_KEY_ID=<SECRET>
-export AWS_SECRET_ACCESS_KEY=<SECRET>
-export RESTIC_PASSWORD=<SECRET>
-
-restic init
-```
+`systemctl start --user restic_init.service`
+Let's see if everything worked:
+`systemctl status --user restic_init.service`
 
