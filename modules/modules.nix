@@ -5,9 +5,9 @@
     ./firmware.nix
     ./network.nix
     ./printing.nix
-
-    ./paperless.nix
+    ./unbound.nix
     ./wireguard.nix
+    ./secrets.nix
   ];
 
 }

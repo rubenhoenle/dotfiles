@@ -10,11 +10,6 @@
     owner = "ruben";
     group = "users";
   };
-  age.secrets.paperlessPassword = {
-    file = ../secrets/paperless-password.age;
-    owner = "ruben";
-    group = "users";
-  };
   age.secrets.wireguardPrivateKey = {
     file = ../secrets/wireguard-private-key.age;
     owner = "ruben";

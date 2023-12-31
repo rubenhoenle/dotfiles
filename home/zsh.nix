@@ -10,6 +10,9 @@
       update = "sudo nixos-rebuild switch --flake .#";
       update-boot = "sudo nixos-rebuild boot --flake .#";
 
+      # backup monitoring
+      restic-log = "journalctl --user -eu restic_backup.service";
+
       # other stuff
       xclip = "xclip -selection c";
       ntfy = "curl -L ntfy.hoenle.xyz/test -d";
