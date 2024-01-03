@@ -32,7 +32,8 @@
     glow
 
     # games
-    prismlauncher
+    #THIS IS CAUSING THE REBUILDS: prismlauncher
+    prismlauncher-qt5
     openarena
   ];
 
