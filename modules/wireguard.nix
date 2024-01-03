@@ -10,13 +10,9 @@ in
 
   config = mkIf (cfg.enable)
     {
-      networking.firewall = {
-        allowedUDPPorts = [ 51820 ];
-      };
+      networking.firewall.allowedUDPPorts = [ 51820 ];
 
-      environment.etc = {
-        "resolv.conf".text = "nameserver 192.168.178.1\nnameserver 9.9.9.9";
-      };
+      #environment.etc."resolv.conf".text = "nameserver 192.168.178.1\nnameserver 9.9.9.9";
 
       networking.wireguard.interfaces = {
         # "wg0" is the network interface name. You can name the interface arbitrarily.

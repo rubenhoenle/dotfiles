@@ -15,6 +15,7 @@
     inkscape
 
     curl
+    dnsutils
 
     # development
     vscode

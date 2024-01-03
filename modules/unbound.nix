@@ -10,6 +10,13 @@ in
 
   config = mkIf (cfg.enable)
     {
-      services.unbound.enable = true;
+      services.unbound = {
+        enable = true;
+        resolveLocalQueries = false;
+      };
+      networking = {
+        nameservers = [ "127.0.0.1" "::1" ];
+        networkmanager.dns = lib.mkForce "none";
+      };
     };
 }

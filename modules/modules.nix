@@ -1,6 +1,6 @@
-{ pkgs, ... }: {
-
+{
   imports = [
+    ./locales.nix
     ./backup.nix
     ./firmware.nix
     ./network.nix
@@ -9,5 +9,4 @@
     ./wireguard.nix
     ./secrets.nix
   ];
-
 }

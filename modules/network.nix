@@ -18,6 +18,19 @@ in
         allowedTCPPorts = [ 25565 ];
         allowedUDPPorts = [ 25565 ];
       };
+      hosts = {
+        "192.168.178.1" = [ "fritz.box" ];
+        "192.168.178.2" = [ "synology" "synology.fritz.box" ];
+        "192.168.178.5" = [
+          "mandalore"
+          "paperless.local"
+          "tandoor.local"
+          "mandalore.local"
+          "wiki.local"
+          "whoami.local"
+        ];
+        "192.168.178.20" = [ "printer01" "printer01.fritz.box" ];
+      };
     };
   };
 }
