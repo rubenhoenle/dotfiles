@@ -46,8 +46,7 @@
   programs.bash.enable = true;
   programs.chromium.enable = true;
 
-  # make vim the default editor
-  #programs.vim.defaultEditor = true;
+  # make neovim the default editor
   programs.neovim.defaultEditor = true;
 
   xdg.enable = true;
