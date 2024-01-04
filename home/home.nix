@@ -44,7 +44,6 @@
 
   programs.home-manager.enable = true;
   programs.bash.enable = true;
-  programs.chromium.enable = true;
 
   # make neovim the default editor
   programs.neovim.defaultEditor = true;
