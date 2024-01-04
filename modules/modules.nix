@@ -5,6 +5,7 @@
     ./gnome.nix
     ./locales.nix
     ./network.nix
+    ./nix.nix
     ./printing.nix
     ./secrets.nix
     ./sound.nix
