@@ -8,7 +8,7 @@
 ## Updating the system
 `nix flake update`
 
-`fwupdmgr`
+`fwupdmgr update`
 
 ## Code formatting
 `nix fmt`

@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 {
   home.packages = with pkgs; [
     # desktop applications
@@ -63,7 +63,5 @@
     # gnome configurations
     ./dconf.nix
   ];
-
-
 }
 
