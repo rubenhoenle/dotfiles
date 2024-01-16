@@ -31,6 +31,8 @@
     htop
     glow
 
+    ripgrep
+
     # games
     #THIS IS CAUSING THE REBUILDS: prismlauncher
     prismlauncher-qt5
