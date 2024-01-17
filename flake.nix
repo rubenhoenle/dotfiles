@@ -2,8 +2,8 @@
   description = "A very basic flake";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/release-23.11";
-    home-manager.url = "github:nix-community/home-manager/release-23.11";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    home-manager.url = "github:nix-community/home-manager";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     # agenix for encrypting secrets
