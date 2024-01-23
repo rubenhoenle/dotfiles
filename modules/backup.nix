@@ -18,7 +18,33 @@ in
           localRepo = "/run/media/ruben/SAMSUNG/restic-nixos";
           resticPasswordFile = config.age.secrets.resticPassword.path;
           backupPaths = "/home/ruben";
-          backupExcludes = "--exclude-caches --exclude=\"/home/ruben/cache\" --exclude=\"/home/ruben/.local/\"";
+          excludeFile = pkgs.writeText "restic-excludes.txt"
+            ''
+              /home/ruben/.bash_history
+              /home/ruben/.bash_profile
+              /home/ruben/.bashrc
+              /home/ruben/.cache
+              /home/ruben/.config
+              /home/ruben/.docker
+              /home/ruben/.gnupg
+              /home/ruben/.local
+              /home/ruben/.mozilla
+              /home/ruben/.nix-defexpr
+              /home/ruben/.nix-profile
+              /home/ruben/.pki
+              /home/ruben/.profile
+              /home/ruben/.vim
+              /home/ruben/.viminfo
+              /home/ruben/.vscode
+              /home/ruben/.zshenv
+              /home/ruben/.zsh_history
+              /home/ruben/.zshrc
+              node_modules
+              __pycache__
+              /home/ruben/nobackup
+              !/home/ruben/.mozilla/firefox/**/bookmarkbackups
+            '';
+          backupExcludes = "--exclude-caches --exclude-file=${excludeFile}";
           keep = {
             hourly = "48";
             daily = "7";
