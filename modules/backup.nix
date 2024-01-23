@@ -43,6 +43,8 @@ in
               __pycache__
               /home/ruben/nobackup
               !/home/ruben/.mozilla/firefox/**/bookmarkbackups
+              !/home/ruben/.local/share/Trash
+              !/home/ruben/.local/share/PrismLauncher
             '';
           backupExcludes = "--exclude-caches --exclude-file=${excludeFile}";
           keep = {
