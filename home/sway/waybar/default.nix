@@ -48,7 +48,7 @@
           };
           format-charging = "󰂄 {capacity}%";
           format = "{icon} {capacity}%";
-          format-icons = ["󱃍" "󰁺" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹"];
+          format-icons = [ "󱃍" "󰁺" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹" ];
           tooltip = true;
         };
         clock = {
@@ -113,7 +113,7 @@
         };
         backlight = {
           format = "{icon} {percent}%";
-          format-icons = ["󰃞" "󰃟" "󰃠"];
+          format-icons = [ "󰃞" "󰃟" "󰃠" ];
           on-scroll-up = "${pkgs.swayfx}/bin/swaymsg exec ${pkgs.brightnessctl}/bin/brightnessctl set +5%";
           on-scroll-down = "${pkgs.swayfx}/bin/swaymsg exec ${pkgs.brightnessctl}/bin/brightnessctl set -5%";
         };
@@ -126,7 +126,7 @@
           format-icons = {
             headphone = "󰋋";
             headset = "󰋎";
-            default = ["󰕿" "󰖀" "󰕾"];
+            default = [ "󰕿" "󰖀" "󰕾" ];
           };
           tooltip-format = "{icon}  {volume}% {format_source}";
           on-click = "${pkgs.swayfx}/bin/swaymsg exec \"${pkgs.alacritty}/bin/alacritty --class floating_shell -o window.dimensions.columns=82 -o window.dimensions.lines=25 -e ${pkgs.pulsemixer}/bin/pulsemixer\"";
@@ -139,7 +139,7 @@
           interval = 5;
           format = "{icon}";
           tooltip-format = "{temperatureC}°C";
-          format-icons = ["" "" ""];
+          format-icons = [ "" "" "" ];
           tooltip = true;
           on-click = "${pkgs.swayfx}/bin/swaymsg exec \"${pkgs.alacritty}/bin/alacritty --class floating_shell -o window.dimensions.columns=82 -o window.dimensions.lines=25 -e watch ${pkgs.lm_sensors}/bin/sensors\"";
         };

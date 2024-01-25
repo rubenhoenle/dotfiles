@@ -5,7 +5,6 @@
     spotify
     signal-desktop
     yubioath-flutter
-    gnome.gnome-terminal
     libreoffice
     cryptomator
     syncthing

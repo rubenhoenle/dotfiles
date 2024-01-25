@@ -6,6 +6,12 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  fonts.packages = with pkgs; [
+    (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+    #google-fonts
+    corefonts
+  ];
+
   # Enable the X11 windowing system.
   #services.xserver.enable = true;
 

@@ -3,7 +3,10 @@
   wayland.windowManager.sway =
     let
       #glyphs-picker = import ../../pkgs/glyphs-picker.nix { inherit pkgs; };
-      wallpaper = ./wallpapers/mars.jpg;
+      wallpaper = builtins.fetchurl {
+        url = "https://4kwallpapers.com/images/wallpapers/macos-monterey-wwdc-21-stock-dark-mode-5k-5120x2880-5585.jpg";
+        sha256 = "01vfimsvbsg2prm77ziispqmd7l7dkslxb043ajwhi6vajja7mq3";
+      };
       cfg = config.wayland.windowManager.sway.config;
       modeShutdown = "(h) hibernate (l) lock (e) logout (r) reboot (u) suspend (s) shutdown";
       modeScreenshot = "󰄄  (r) region (s) screen";
@@ -17,6 +20,9 @@
       extraConfig = ''
         for_window [app_id="floating_shell"] floating enable, border pixel 1, sticky enable
         for_window [title="dmenu"] floating enable, border pixel 1, sticky enable
+        workspace 1
+        exec firefox
+        exec alacritty
       '';
       config = {
         modifier = "Mod4";
@@ -83,14 +89,14 @@
             natural_scroll = "enabled";
           };
           "type:keyboard" = {
-            xkb_layout = "us,de";
+            xkb_layout = "de";
           };
         };
         keybindings = {
           # Basics
           "${cfg.modifier}+Return" = "exec ${cfg.terminal}";
           "${cfg.modifier}+q" = "kill";
-          "${cfg.modifier}+d" = "exec ${cfg.menu}";
+          "${cfg.modifier}+space" = "exec ${cfg.menu}";
           "${cfg.modifier}+Control+r" = "reload";
 
           # Focus
@@ -174,8 +180,6 @@
           # Screenshot mode
           "${cfg.modifier}+Print" = "mode \"${modeScreenshot}\"";
           "${cfg.modifier}+Shift+s" = "mode \"${modeScreenshot}\"";
-
-          "${cfg.modifier}+space" = "exec ${pkgs.swayfx}/bin/swaymsg input $(${pkgs.swayfx}/bin/swaymsg -t get_inputs --raw | ${pkgs.jq}/bin/jq '[.[] | select(.type == \"keyboard\")][0] | .identifier') xkb_switch_layout next";
 
           # Icon picker
           #"${cfg.modifier}+Period" = "exec ${glyphs-picker}/bin/glyphs-picker";
