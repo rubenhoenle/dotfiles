@@ -1,8 +1,8 @@
 {
   imports = [
+    ./sway.nix
     ./backup.nix
     ./firmware.nix
-    ./gnome.nix
     ./locales.nix
     ./network.nix
     ./nix.nix

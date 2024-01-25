@@ -39,6 +39,8 @@
     openarena
   ];
 
+
+
   home.stateVersion = "23.11";
 
   home.username = "ruben";
@@ -57,7 +59,7 @@
     ./git.nix
     ./vim.nix
     ./zsh.nix
-
+    ./sway/default.nix
     ./neovim/neovim.nix
 
     ./default-applications.nix
