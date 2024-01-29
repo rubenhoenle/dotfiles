@@ -17,9 +17,7 @@
           "network"
           "bluetooth"
           # media
-          "custom/playerctl"
           "idle_inhibitor"
-          "custom/dnd"
           "pulseaudio"
           "backlight"
           # informational
@@ -76,10 +74,9 @@
           tooltip = false;
         };
         network = {
-          interval = 5;
-          format-wifi = " ";
-          format-ethernet = "󰈀";
-          format-disconnected = "󰖪";
+          format = "NET: none";
+          format-wifi = "NET: {essid}";
+          format-ethernet = "NET: wired";
           tooltip-format = "{icon} {ifname} = {ipaddr}";
           tooltip-format-ethernet = "{icon} {ifname} = {ipaddr}";
           tooltip-format-wifi = "{icon} {ifname} ({essid}) = {ipaddr}";
@@ -94,8 +91,8 @@
         idle_inhibitor = {
           format = "{icon}";
           format-icons = {
-            activated = "󰒳";
-            deactivated = "󰒲";
+            activated = "PERFORMANCE";
+            deactivated = "POWERSAVER";
           };
           tooltip = true;
           tooltip-format-activated = "power-saving disabled";
@@ -107,7 +104,7 @@
         };
         pulseaudio = {
           scroll-step = 5;
-          format = "{icon} {volume}%{format_source}";
+          format = "VOL: {volume}%{format_source}";
           format-muted = "󰖁 {format_source}";
           format-source = "";
           format-source-muted = " 󰍭";
@@ -123,40 +120,11 @@
           on-scroll-down = "${pkgs.swayfx}/bin/swaymsg exec ${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ -5%";
         };
         bluetooth = {
-          format = "󰂯";
-          format-disabled = "󰂲";
+          format = "BLUE: on";
+          format-disabled = "BLUE: off";
           on-click = "${pkgs.alacritty}/bin/alacritty --class floating_shell -o window.dimensions.columns=82 -o window.dimensions.lines=25 -e ${pkgs.bluetuith}/bin/bluetuith";
           on-click-right = "rfkill toggle bluetooth";
           tooltip-format = "{}";
-        };
-        "custom/playerctl" = {
-          interval = "once";
-          tooltip = true;
-          return-type = "json";
-          format = "{icon}";
-          format-icons = {
-            Playing = "󰏦";
-            Paused = "󰐍";
-          };
-          exec = "${pkgs.playerctl}/bin/playerctl metadata --format '{\"alt\": \"{{status}}\", \"tooltip\": \"{{playerName}}: {{markup_escape(title)}} - {{markup_escape(artist)}}\" }'";
-          on-click = "${pkgs.playerctl}/bin/playerctl play-pause; ${pkgs.procps}/bin/pkill -RTMIN+5 waybar";
-          on-click-right = "${pkgs.playerctl}/bin/playerctl next; ${pkgs.procps}/bin/pkill -RTMIN+5 waybar";
-          on-scroll-up = "${pkgs.playerctl}/bin/playerctl position 10+; ${pkgs.procps}/bin/pkill -RTMIN+5 waybar";
-          on-scroll-down = "${pkgs.playerctl}/bin/playerctl position 10-; ${pkgs.procps}/bin/pkill -RTMIN+5 waybar";
-          signal = 5;
-        };
-        "custom/dnd" = {
-          interval = "once";
-          return-type = "json";
-          format = "{}{icon}";
-          format-icons = {
-            default = "󰚢";
-            dnd = "󰚣";
-          };
-          on-click = "${pkgs.mako}/bin/makoctl mode | ${pkgs.gnugrep}/bin/grep 'do-not-disturb' && ${pkgs.mako}/bin/makoctl mode -r do-not-disturb || ${pkgs.mako}/bin/makoctl mode -a do-not-disturb; ${pkgs.procps}/bin/pkill -RTMIN+11 waybar";
-          on-click-right = "${pkgs.mako}/bin/makoctl restore";
-          exec = "printf '{\"alt\":\"%s\",\"tooltip\":\"mode = %s\"}' $(${pkgs.mako}/bin/makoctl mode | ${pkgs.gnugrep}/bin/grep -q 'do-not-disturb' && echo dnd || echo default) $(${pkgs.mako}/bin/makoctl mode | ${pkgs.coreutils}/bin/tail -1)";
-          signal = 11;
         };
       };
     };
