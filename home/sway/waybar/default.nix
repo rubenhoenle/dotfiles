@@ -10,7 +10,7 @@
         /* height = "30"; */
         /* position = "top"; */
 
-        modules-left = [ "custom/nixstore" "sway/workspaces" ];
+        modules-left = [ "clock" "custom/nixstore" "sway/workspaces" ];
         modules-center = [ "sway/mode" ];
         modules-right = [
           # connecting
@@ -27,8 +27,6 @@
           "temperature"
           "memory"
           "battery"
-          # system
-          "clock"
         ];
 
         # modules
@@ -44,14 +42,13 @@
             warning = 30;
             critical = 15;
           };
-          format-charging = "󰂄 {capacity}%";
-          format = "{icon} {capacity}%";
-          format-icons = [ "󱃍" "󰁺" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹" ];
+          format-charging = "BAT: {capacity}%";
+          format = "BAT: {capacity}%";
           tooltip = true;
         };
         clock = {
           interval = 60;
-          format = "{:%d.%m.%Y %H:%M}";
+          format = "{:%A %d.%m.%Y %H:%M}";
           tooltip = true;
           tooltip-format = "{:%d.%m.%Y}\n<tt>{calendar}</tt>";
           calendar = {
@@ -67,6 +64,11 @@
         };
         cpu = {
           format = "CPU: {usage}%";
+          tooltip = false;
+        };
+        temperature = {
+          interval = 5;
+          format = "{temperatureC}°C";
           tooltip = false;
         };
         memory = {
@@ -119,11 +121,6 @@
           on-click-middle = "${pkgs.swayfx}/bin/swaymsg exec exec ${pkgs.pulseaudio}/bin/pactl set-sink-mute @DEFAULT_SINK@ toggle";
           on-scroll-up = "${pkgs.swayfx}/bin/swaymsg exec ${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ +5%";
           on-scroll-down = "${pkgs.swayfx}/bin/swaymsg exec ${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ -5%";
-        };
-        temperature = {
-          interval = 5;
-          format = "TEMP: {temperatureC}°C";
-          tooltip = false;
         };
         bluetooth = {
           format = "󰂯";
