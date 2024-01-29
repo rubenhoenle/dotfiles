@@ -1,5 +1,4 @@
 { pkgs, ... }:
-
 {
   programs.waybar = {
     enable = true;
@@ -14,7 +13,6 @@
         modules-left = [ "custom/nixstore" "sway/workspaces" ];
         modules-center = [ "sway/mode" ];
         modules-right = [
-          "sway/language"
           # connecting
           "network"
           "bluetooth"
@@ -53,7 +51,7 @@
         };
         clock = {
           interval = 60;
-          format = "{:%H:%M}";
+          format = "{:%d.%m.%Y %H:%M}";
           tooltip = true;
           tooltip-format = "{:%d.%m.%Y}\n<tt>{calendar}</tt>";
           calendar = {
@@ -68,22 +66,12 @@
           };
         };
         cpu = {
-          interval = 10;
-          format = "󰘚";
-          states = {
-            warning = 70;
-            critical = 90;
-          };
-          tooltip = true;
+          format = "CPU: {usage}%";
+          tooltip = false;
         };
         memory = {
-          interval = 10;
-          format = "󰍛";
-          states = {
-            warning = 70;
-            critical = 90;
-          };
-          tooltip = true;
+          format = "MEM: {percentage}%";
+          tooltip = false;
         };
         network = {
           interval = 5;
@@ -112,10 +100,8 @@
           tooltip-format-deactivated = "power-saving enabled";
         };
         backlight = {
-          format = "{icon} {percent}%";
-          format-icons = [ "󰃞" "󰃟" "󰃠" ];
-          on-scroll-up = "${pkgs.swayfx}/bin/swaymsg exec ${pkgs.brightnessctl}/bin/brightnessctl set +5%";
-          on-scroll-down = "${pkgs.swayfx}/bin/swaymsg exec ${pkgs.brightnessctl}/bin/brightnessctl set -5%";
+          tooltip = false;
+          format = "BRI: {percent}%";
         };
         pulseaudio = {
           scroll-step = 5;
@@ -135,13 +121,9 @@
           on-scroll-down = "${pkgs.swayfx}/bin/swaymsg exec ${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ -5%";
         };
         temperature = {
-          critical-threshold = 90;
           interval = 5;
-          format = "{icon}";
-          tooltip-format = "{temperatureC}°C";
-          format-icons = [ "" "" "" ];
-          tooltip = true;
-          on-click = "${pkgs.swayfx}/bin/swaymsg exec \"${pkgs.alacritty}/bin/alacritty --class floating_shell -o window.dimensions.columns=82 -o window.dimensions.lines=25 -e watch ${pkgs.lm_sensors}/bin/sensors\"";
+          format = "TEMP: {temperatureC}°C";
+          tooltip = false;
         };
         bluetooth = {
           format = "󰂯";
@@ -149,12 +131,6 @@
           on-click = "${pkgs.alacritty}/bin/alacritty --class floating_shell -o window.dimensions.columns=82 -o window.dimensions.lines=25 -e ${pkgs.bluetuith}/bin/bluetuith";
           on-click-right = "rfkill toggle bluetooth";
           tooltip-format = "{}";
-        };
-        "sway/language" = {
-          format = " {}";
-          min-length = 5;
-          tooltip = false;
-          on-click = "${pkgs.swayfx}/bin/swaymsg input $(${pkgs.swayfx}/bin/swaymsg -t get_inputs --raw | ${pkgs.jq}/bin/jq '[.[] | select(.type == \"keyboard\")][0] | .identifier') xkb_switch_layout next";
         };
         "custom/playerctl" = {
           interval = "once";

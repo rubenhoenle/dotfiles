@@ -2,13 +2,12 @@
 {
   wayland.windowManager.sway =
     let
-      #glyphs-picker = import ../../pkgs/glyphs-picker.nix { inherit pkgs; };
       wallpaper = builtins.fetchurl {
         url = "https://4kwallpapers.com/images/wallpapers/macos-monterey-wwdc-21-stock-dark-mode-5k-5120x2880-5585.jpg";
         sha256 = "01vfimsvbsg2prm77ziispqmd7l7dkslxb043ajwhi6vajja7mq3";
       };
       cfg = config.wayland.windowManager.sway.config;
-      modeShutdown = "(h) hibernate (l) lock (e) logout (r) reboot (u) suspend (s) shutdown";
+      modeShutdown = "(h) hibernate (e) logout (r) reboot (u) suspend (s) shutdown";
       modeScreenshot = "󰄄  (r) region (s) screen";
     in
     {
@@ -94,33 +93,23 @@
         };
         keybindings = {
           # Basics
-          "${cfg.modifier}+Return" = "exec ${cfg.terminal}";
+          "${cfg.modifier}+t" = "exec ${cfg.terminal}";
           "${cfg.modifier}+q" = "kill";
           "${cfg.modifier}+space" = "exec ${cfg.menu}";
           "${cfg.modifier}+Control+r" = "reload";
 
           # Focus
           "${cfg.modifier}+${cfg.left}" = "focus left";
-          "${cfg.modifier}+${cfg.down}" = "focus down";
-          "${cfg.modifier}+${cfg.up}" = "focus up";
           "${cfg.modifier}+${cfg.right}" = "focus right";
-
           "${cfg.modifier}+Left" = "focus left";
-          "${cfg.modifier}+Down" = "focus down";
-          "${cfg.modifier}+Up" = "focus up";
           "${cfg.modifier}+Right" = "focus right";
 
           "${cfg.modifier}+tab" = "workspace back_and_forth";
 
           # Moving
           "${cfg.modifier}+Shift+${cfg.left}" = "move left";
-          "${cfg.modifier}+Shift+${cfg.down}" = "move down";
-          "${cfg.modifier}+Shift+${cfg.up}" = "move up";
           "${cfg.modifier}+Shift+${cfg.right}" = "move right";
-
           "${cfg.modifier}+Shift+Left" = "move left";
-          "${cfg.modifier}+Shift+Down" = "move down";
-          "${cfg.modifier}+Shift+Up" = "move up";
           "${cfg.modifier}+Shift+Right" = "move right";
 
           # Workspaces
@@ -146,43 +135,16 @@
           "${cfg.modifier}+Shift+9" = "move container to workspace number 9";
           "${cfg.modifier}+Shift+0" = "move container to workspace number 10";
 
-          # Moving workspaces between outputs
-          "${cfg.modifier}+Control+${cfg.left}" = "move workspace to output left";
-          "${cfg.modifier}+Control+${cfg.down}" = "move workspace to output down";
-          "${cfg.modifier}+Control+${cfg.up}" = "move workspace to output up";
-          "${cfg.modifier}+Control+${cfg.right}" = "move workspace to output right";
-
-          "${cfg.modifier}+Control+Left" = "move workspace to output left";
-          "${cfg.modifier}+Control+Down" = "move workspace to output down";
-          "${cfg.modifier}+Control+Up" = "move workspace to output up";
-          "${cfg.modifier}+Control+Right" = "move workspace to output right";
-
-          # Splits
-          "${cfg.modifier}+b" = "splith";
-          "${cfg.modifier}+v" = "splitv";
-
           # Layouts
-          "${cfg.modifier}+s" = "layout stacking";
           "${cfg.modifier}+w" = "layout tabbed";
-          "${cfg.modifier}+e" = "layout toggle split";
           "${cfg.modifier}+f" = "fullscreen toggle";
 
-          "${cfg.modifier}+a" = "focus parent";
-
-          "${cfg.modifier}+Control+space" = "floating toggle";
-
-          # Resize mode
-          "${cfg.modifier}+r" = "mode resize";
-
-          # Shutdown mode
-          "${cfg.modifier}+Shift+e" = "mode \"${modeShutdown}\"";
+          # screen lock
+          "Control+l" = "exec ${pkgs.swaylock}/bin/swaylock && ${pkgs.swayfx}/bin/swaymsg mode default";
 
           # Screenshot mode
           "${cfg.modifier}+Print" = "mode \"${modeScreenshot}\"";
           "${cfg.modifier}+Shift+s" = "mode \"${modeScreenshot}\"";
-
-          # Icon picker
-          #"${cfg.modifier}+Period" = "exec ${glyphs-picker}/bin/glyphs-picker";
 
           # Multimedia Keys
           "XF86AudioMute" = "exec ${pkgs.pulseaudio}/bin/pactl set-sink-mute @DEFAULT_SINK@ toggle";
@@ -196,46 +158,9 @@
           "XF86AudioPrev" = "exec ${pkgs.playerctl}/bin/playerctl previous";
         };
         modes = {
-          "${modeShutdown}" = {
-            "h" = "exec ${pkgs.systemd}/bin/systemctl hibernate && ${pkgs.swayfx}/bin/swaymsg mode default";
-            "l" = "exec ${pkgs.swaylock}/bin/swaylock && ${pkgs.swayfx}/bin/swaymsg mode default";
-            "e" = "exec ${pkgs.systemd}/bin/loginctl terminate-user $USER && ${pkgs.swayfx}/bin/swaymsg mode default";
-            "r" = "exec ${pkgs.systemd}/bin/systemctl reboot && ${pkgs.swayfx}/bin/swaymsg mode default";
-            "u" = "exec ${pkgs.systemd}/bin/systemctl suspend && ${pkgs.swayfx}/bin/swaymsg mode default";
-            "s" = "exec ${pkgs.systemd}/bin/systemctl poweroff && ${pkgs.swayfx}/bin/swaymsg mode default";
-            Escape = "mode default";
-            Return = "mode default";
-          };
           "${modeScreenshot}" = {
             "r" = "exec ${pkgs.swayfx}/bin/swaymsg mode default && ${pkgs.grim}/bin/grim -g \"$(${pkgs.slurp}/bin/slurp)\" - | ${pkgs.wl-clipboard}/bin/wl-copy";
             "s" = "exec ${pkgs.swayfx}/bin/swaymsg mode default && ${pkgs.grim}/bin/grim -o \"$(${pkgs.swayfx}/bin/swaymsg -t get_outputs | ${pkgs.jq}/bin/jq -r '.[] | select(.focused)' | ${pkgs.jq}/bin/jq -r '.name')\" - | ${pkgs.wl-clipboard}/bin/wl-copy";
-            Escape = "mode default";
-            Return = "mode default";
-          };
-          resize = {
-            "${cfg.modifier}+${cfg.left}" = "resize shrink width 10px";
-            "${cfg.modifier}+${cfg.down}" = "resize grow height 10px";
-            "${cfg.modifier}+${cfg.up}" = "resize shrink height 10px";
-            "${cfg.modifier}+${cfg.right}" = "resize grow width 10px";
-
-            "${cfg.modifier}+Left" = "resize shrink width 10px";
-            "${cfg.modifier}+Down" = "resize grow height 10px";
-            "${cfg.modifier}+Up" = "resize shrink height 10px";
-            "${cfg.modifier}+Right" = "resize grow width 10px";
-
-            "${cfg.modifier}+Shift+${cfg.left}" = "resize shrink width 50px";
-            "${cfg.modifier}+Shift+${cfg.down}" = "resize grow height 50px";
-            "${cfg.modifier}+Shift+${cfg.up}" = "resize shrink height 50px";
-            "${cfg.modifier}+Shift+${cfg.right}" = "resize grow width 50px";
-
-            "${cfg.modifier}+Shift+Left" = "resize shrink width 50px";
-            "${cfg.modifier}+Shift+Down" = "resize grow height 50px";
-            "${cfg.modifier}+Shift+Up" = "resize shrink height 50px";
-            "${cfg.modifier}+Shift+Right" = "resize grow width 50px";
-
-            "${cfg.modifier}+minus" = "gaps inner current minus 5px";
-            "${cfg.modifier}+plus" = "gaps inner current plus 5px";
-
             Escape = "mode default";
             Return = "mode default";
           };

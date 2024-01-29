@@ -13,6 +13,9 @@
     vlc
     inkscape
 
+    # file manager
+    gnome.nautilus
+
     curl
     dnsutils
 
@@ -62,9 +65,6 @@
     ./neovim/neovim.nix
 
     ./default-applications.nix
-
-    # gnome configurations
-    ./dconf.nix
   ];
 }
 
