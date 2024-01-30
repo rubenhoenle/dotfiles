@@ -11,5 +11,6 @@
     ./sound.nix
     ./unbound.nix
     ./wireguard.nix
+    ./gtk.nix
   ];
 }
