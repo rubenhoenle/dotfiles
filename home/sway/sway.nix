@@ -7,7 +7,6 @@
         sha256 = "01vfimsvbsg2prm77ziispqmd7l7dkslxb043ajwhi6vajja7mq3";
       };
       cfg = config.wayland.windowManager.sway.config;
-      modeShutdown = "(h) hibernate (e) logout (r) reboot (u) suspend (s) shutdown";
       modeScreenshot = "󰄄  (r) region (s) screen";
     in
     {
