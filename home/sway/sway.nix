@@ -8,6 +8,10 @@
       };
       cfg = config.wayland.windowManager.sway.config;
       modeScreenshot = "󰄄  (r) region (s) screen";
+      colors = {
+        text = "#cccccc";
+        indicator = "#cccccc";
+      };
     in
     {
       enable = true;
@@ -52,32 +56,32 @@
         };
         colors = {
           focused = {
-            border = "#8C3D2B";
-            background = "#59281D";
-            text = "#cccccc";
-            indicator = "#cccccc";
-            childBorder = "#8C3D2B";
+            border = "#420d52";
+            background = "#5e1b72";
+            text = colors.text;
+            indicator = colors.indicator;
+            childBorder = "#4b115c";
           };
           focusedInactive = {
-            border = "#8C6056";
-            background = "#593E38";
-            text = "#cccccc";
-            indicator = "#cccccc";
-            childBorder = "#8C6056";
+            border = "#7e5f87";
+            background = "#7e5f87";
+            text = colors.text;
+            indicator = colors.indicator;
+            childBorder = "#7e5f87";
           };
           unfocused = {
             border = "#444444";
             background = "#222222";
-            text = "#cccccc";
-            indicator = "#cccccc";
+            text = colors.text;
+            indicator = colors.indicator;
             childBorder = "#444444";
           };
           urgent = {
-            border = "#8C3D2B";
-            background = "#F26A4B";
-            text = "#cccccc";
-            indicator = "#cccccc";
-            childBorder = "#8C3D2B";
+            border = "#420d52";
+            background = "#5e1b72";
+            text = colors.text;
+            indicator = colors.indicator;
+            childBorder = "#420d52";
           };
         };
         bars = [ ]; # managed as systemd user unit

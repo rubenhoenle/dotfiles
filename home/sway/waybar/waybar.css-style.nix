@@ -1,6 +1,12 @@
 { ... }:
 let
   background-color = "#180545";
+  text-color = "#ccc";
+  blinking = {
+    color = "#000";
+    background-color.warning = "#777";
+    background-color.critical = "#FF0000";
+  };
 in
 {
   programs.waybar.style = ''
@@ -10,23 +16,23 @@ in
 
     @keyframes blink-warning {
         70% {
-            color: #000;
+            color: ${blinking.color};
         }
 
         to {
-            color: #000;
-            background-color: #777;
+            color: ${blinking.color};
+            background-color: ${blinking.background-color.warning};
         }
     }
 
     @keyframes blink-critical {
         70% {
-            color: #000;
+            color: ${blinking.color};
         }
 
         to {
-            color: #000;
-            background-color: #777;
+            color: ${blinking.color};
+            background-color: ${blinking.background-color.critical};
         }
     }
 
@@ -91,7 +97,7 @@ in
     #custom-playerctl {
         padding: 0 10px;
         margin: 6px 0px;
-        color: #ccc;
+        color: ${text-color};
         /* font-weight: bold; */
         background-color: ${background-color};
     }
@@ -158,7 +164,7 @@ in
         border-radius: 4px;
         border: 1px solid ${background-color};
         background-color: ${background-color};
-        color: #ccc;
+        color: ${text-color};
     }
 
     #workspaces button.focused {
