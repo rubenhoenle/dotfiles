@@ -114,6 +114,7 @@
         };
       };
     };
-    style = ./bar.css;
   };
+
+  imports = [ ./waybar.css-style.nix ];
 }
