@@ -50,7 +50,6 @@
                   _module.args.agenix = agenix.packages.${system}.default;
                 }
                 ./modules/modules.nix
-                ./jobs/jobs.nix
                 home-manager.nixosModules.home-manager
                 {
                   home-manager.useGlobalPkgs = true;

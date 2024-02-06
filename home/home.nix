@@ -5,6 +5,8 @@
     spotify
     signal-desktop
     yubioath-flutter
+    yubikey-manager # yubikey manager cli
+    yubikey-manager-qt # yubikey manager gui
     libreoffice
     cryptomator
     syncthing
@@ -36,7 +38,6 @@
     ripgrep
 
     # games
-    #THIS IS CAUSING THE REBUILDS: prismlauncher
     prismlauncher-qt5
     openarena
   ];

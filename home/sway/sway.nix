@@ -143,7 +143,7 @@
           "${cfg.modifier}+f" = "fullscreen toggle";
 
           # screen lock
-          "Control+Shift+l" = "exec ${pkgs.swaylock}/bin/swaylock && ${pkgs.swayfx}/bin/swaymsg mode default";
+          "${cfg.modifier}+Shift+Space" = "exec ${pkgs.swaylock}/bin/swaylock && ${pkgs.swayfx}/bin/swaymsg mode default";
 
           # Screenshot mode
           "Print" = "mode \"${modeScreenshot}\"";

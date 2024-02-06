@@ -73,8 +73,7 @@ in
               ExecStart = "${pkgs.restic}/bin/restic backup -r ${remoteRepo} ${backupExcludes} -o s3.region=${s3DefaultRegion} --password-file ${resticPasswordFile} --one-file-system --tag systemd.timer ${backupPaths}";
               ExecStartPost = "${pkgs.restic}/bin/restic forget -r ${remoteRepo} -o s3.region=${s3DefaultRegion} --password-file ${resticPasswordFile} --tag systemd.timer --group-by \"paths,tags\" --keep-hourly ${keep.hourly} --keep-daily ${keep.daily} --keep-weekly ${keep.weekly} --keep-monthly ${keep.monthly} --keep-yearly ${keep.yearly}";
             };
-            onSuccess = [ "restic_ntfy_success.service" ];
-            onFailure = [ "restic_unlock.service" "restic_ntfy_fail.service" ];
+            onFailure = [ "restic_unlock.service" ];
             path = [
               pkgs.openssh
             ];
@@ -87,18 +86,6 @@ in
             serviceConfig = {
               ExecStart = "${pkgs.restic}/bin/restic backup -r ${localRepo} --password-file ${resticPasswordFile} --one-file-system --tag systemd.timer ${backupPaths}";
             };
-            unitConfig = {
-              OnSuccess = "restic_ntfy_fail";
-              OnFailure = "restic_ntfy_success";
-            };
-          };
-          restic_ntfy_success = {
-            script = "curl -L ntfy.hoenle.xyz/test -d \"Backup successfull.\"";
-            path = [ pkgs.curl ];
-          };
-          restic_ntfy_fail = {
-            script = "curl -L ntfy.hoenle.xyz/test -d 'Backup failed!'";
-            path = [ pkgs.curl ];
           };
           restic_prune = {
             serviceConfig = {
