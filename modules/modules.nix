@@ -2,6 +2,7 @@
   imports = [
     ./sway.nix
     ./backup.nix
+    ./bluetooth.nix
     ./firmware.nix
     ./locales.nix
     ./network.nix

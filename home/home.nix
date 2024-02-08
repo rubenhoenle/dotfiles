@@ -17,6 +17,7 @@
 
     # file manager
     gnome.nautilus
+    evince
 
     curl
     dnsutils

@@ -76,12 +76,13 @@
         network = {
           format = "NET: none";
           format-wifi = "NET: {essid}";
+          format-disabled = "NET: off";
           format-ethernet = "NET: wired";
-          tooltip-format = "{icon} {ifname} = {ipaddr}";
-          tooltip-format-ethernet = "{icon} {ifname} = {ipaddr}";
-          tooltip-format-wifi = "{icon} {ifname} ({essid}) = {ipaddr}";
-          tooltip-format-disconnected = "{icon} disconnected";
-          tooltip-format-disabled = "{icon} disabled";
+          tooltip-format = "{ipaddr}";
+          tooltip-format-ethernet = "{ipaddr}";
+          tooltip-format-wifi = "{ipaddr}";
+          tooltip-format-disconnected = "disconnected";
+          tooltip-format-disabled = "disabled";
           on-click = "${pkgs.alacritty}/bin/alacritty --class floating_shell -o window.dimensions.columns=82 -o window.dimensions.lines=25 -e ${pkgs.networkmanager}/bin/nmtui connect";
         };
         "sway/mode" = {
@@ -107,10 +108,9 @@
         };
         bluetooth = {
           format = "BLUE: on";
-          format-disabled = "BLUE: off";
-          on-click = "${pkgs.alacritty}/bin/alacritty --class floating_shell -o window.dimensions.columns=82 -o window.dimensions.lines=25 -e ${pkgs.bluetuith}/bin/bluetuith";
-          on-click-right = "rfkill toggle bluetooth";
-          tooltip-format = "{}";
+          format-off = "BLUE: off";
+          format-connected = "BLUE: {num_connections}";
+          on-click = "${pkgs.alacritty}/bin/alacritty --class floating_shell -o window.dimensions.columns=164 -o window.dimensions.lines=25 -e ${pkgs.bluetuith}/bin/bluetuith";
         };
       };
     };
