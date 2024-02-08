@@ -34,8 +34,10 @@
           "*" = {
             bg = "${wallpaper} fill";
           };
-          "DP-2" = {
-            pos = "2560 0";
+          "DP-1" = {
+            pos = "0 0";
+            scale = "1.8";
+            mode = "3840x2160";
           };
           "HDMI-A-1" = {
             pos = "0 0";
@@ -137,6 +139,17 @@
           "${cfg.modifier}+Shift+8" = "move container to workspace number 8";
           "${cfg.modifier}+Shift+9" = "move container to workspace number 9";
           "${cfg.modifier}+Shift+0" = "move container to workspace number 10";
+
+          # Moving workspaces between outputs
+          "${cfg.modifier}+Control+${cfg.left}" = "move workspace to output left";
+          "${cfg.modifier}+Control+${cfg.down}" = "move workspace to output down";
+          "${cfg.modifier}+Control+${cfg.up}" = "move workspace to output up";
+          "${cfg.modifier}+Control+${cfg.right}" = "move workspace to output right";
+
+          "${cfg.modifier}+Control+Left" = "move workspace to output left";
+          "${cfg.modifier}+Control+Down" = "move workspace to output down";
+          "${cfg.modifier}+Control+Up" = "move workspace to output up";
+          "${cfg.modifier}+Control+Right" = "move workspace to output right";
 
           # Layouts
           "${cfg.modifier}+w" = "layout tabbed";
