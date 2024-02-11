@@ -104,6 +104,9 @@
         wireplumber = {
           format = "VOL: {volume}%";
           tooltip = false;
+          scroll-step = 0; # disables scroll
+          format-muted = "VOL: MUTE";
+          on-click = "${pkgs.pulseaudio}/bin/pactl set-sink-mute @DEFAULT_SINK@ toggle";
         };
         bluetooth = {
           format = "BLUE: on";
