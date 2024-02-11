@@ -15,7 +15,6 @@
 
       # other stuff
       xclip = "xclip -selection c";
-      ntfy = "curl -L ntfy.hoenle.xyz/test -d";
       hibernate = "systemctl hibernate";
       open = "xdg-open";
       gloww = "glow README.md";

@@ -40,7 +40,7 @@ in
               #allowedIPs = [ "10.100.0.1" "91.108.12.0/22" ];
 
               # Set this to the server IP and port.
-              endpoint = "rubaem.duckdns.org:57444";
+              endpoint = "dyndns.hoenle.xyz:57444";
               # ToDo: route to endpoint not automatically configured #
               # https://wiki.archlinux.org/index.php/WireGuard#Loop_routing 
               # https://discourse.nixos.org/t/solved-minimal-firewall-setup-for-wireguard-client/7577

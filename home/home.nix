@@ -17,7 +17,12 @@
 
     # file manager
     gnome.nautilus
-    evince
+    evince # gnome pdf reader
+    gnome.eog # gnome image viewer
+
+    tldr
+    zip
+    unzip
 
     curl
     dnsutils

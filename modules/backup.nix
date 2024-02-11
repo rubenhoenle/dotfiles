@@ -84,7 +84,7 @@ in
             requires = [ "run-media-ruben-SAMSUNG.mount" ];
             wantedBy = [ "run-media-ruben-SAMSUNG.mount" ];
             serviceConfig = {
-              ExecStart = "${pkgs.restic}/bin/restic backup -r ${localRepo} --password-file ${resticPasswordFile} --one-file-system --tag systemd.timer ${backupPaths}";
+              ExecStart = "${pkgs.restic}/bin/restic backup -r ${localRepo} ${backupExcludes} --password-file ${resticPasswordFile} --one-file-system --tag systemd.timer ${backupPaths}";
             };
           };
           restic_prune = {

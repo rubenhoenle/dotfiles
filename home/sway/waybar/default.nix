@@ -95,9 +95,7 @@
             activated = "PERFORMANCE";
             deactivated = "POWERSAVER";
           };
-          tooltip = true;
-          tooltip-format-activated = "power-saving disabled";
-          tooltip-format-deactivated = "power-saving enabled";
+          tooltip = false;
         };
         backlight = {
           tooltip = false;
@@ -105,6 +103,7 @@
         };
         wireplumber = {
           format = "VOL: {volume}%";
+          tooltip = false;
         };
         bluetooth = {
           format = "BLUE: on";

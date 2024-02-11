@@ -28,6 +28,7 @@ in
           "mandalore.local"
           "wiki.local"
           "whoami.local"
+          "pad.local"
         ];
         "192.168.178.20" = [ "printer01" "printer01.fritz.box" ];
       };
