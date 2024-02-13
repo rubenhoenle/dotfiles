@@ -1,5 +1,6 @@
 { ... }:
 let
+  font-size = "14px";
   background-color = "#180545";
   text-color = "#ccc";
   blinking = {
@@ -54,7 +55,7 @@ in
     window#waybar {
         color: #777;
         background: transparent;
-        font-size: 15px;
+        font-size: ${font-size};
     }
 
     /* Each module */
