@@ -66,6 +66,7 @@
   imports = [
     ./firefox.nix
     ./git.nix
+    ./ssh.nix
     ./vim.nix
     ./zsh.nix
     ./sway/default.nix
