@@ -12,10 +12,14 @@
       window {
           background-color: #222;
           border-radius: 16px;
-          border: 1px solid #5074bd;
+          border: 1px solid #ccc;
+      }
+      #input {
+          border-radius: 0px;
+          border: none;
       }
       #entry:selected {
-          background-color: #FF0000;
+          background-color: #5e1b72;
           color: white;
           border-radius: 16px;
       }
