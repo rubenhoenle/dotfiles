@@ -4,7 +4,12 @@
   users.users.ruben = {
     isNormalUser = true;
     description = "Ruben";
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "docker"
+      "dialout" # for arduino 
+    ];
     shell = pkgs.zsh;
   };
 }

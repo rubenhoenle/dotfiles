@@ -15,6 +15,8 @@
     vlc
     inkscape
 
+    thonny
+
     # file manager
     gnome.nautilus
     evince # gnome pdf reader
