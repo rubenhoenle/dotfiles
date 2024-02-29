@@ -8,6 +8,7 @@
       "networkmanager"
       "wheel"
       "docker"
+      "video"
       "dialout" # for arduino 
     ];
     shell = pkgs.zsh;

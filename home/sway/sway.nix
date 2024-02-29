@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, pkgs-unstable, ... }:
 {
   wayland.windowManager.sway =
     let
@@ -15,7 +15,7 @@
     in
     {
       enable = true;
-      package = pkgs.swayfx;
+      package = pkgs-unstable.swayfx;
       /* while swayfx is broken, remove the following extra config options: */
       /* corner_radius 4 */
       /* blur enable */
