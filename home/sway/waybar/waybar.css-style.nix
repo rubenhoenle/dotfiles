@@ -1,6 +1,6 @@
 { ... }:
 let
-  font-size = "14px";
+  font-size = "13px";
   background-color = "#180545";
   text-color = "#ccc";
   blinking = {

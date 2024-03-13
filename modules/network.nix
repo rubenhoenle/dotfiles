@@ -23,17 +23,9 @@ in
         "192.168.178.2" = [ "synology" "synology.fritz.box" ];
         "192.168.178.5" = [
           "mandalore"
-          "paperless.local"
-          "tandoor.local"
-          "mandalore.local"
-          "wiki.local"
-          "whoami.local"
-          "pad.local"
-          "pad.hoenle.xyz"
+          "home.hoenle.xyz"
           "pad.home.hoenle.xyz"
-          "recipes.hoenle.xyz"
           "recipes.home.hoenle.xyz"
-          "paperless.hoenle.xyz"
           "paperless.home.hoenle.xyz"
         ];
         "192.168.178.20" = [ "printer01" "printer01.fritz.box" ];
