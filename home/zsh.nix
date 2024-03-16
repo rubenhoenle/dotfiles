@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 {
   programs.zsh = {
     enable = true;
@@ -18,6 +19,8 @@
       hibernate = "systemctl hibernate";
       open = "xdg-open";
       gloww = "glow README.md";
+
+      logout = "exec ${pkgs.systemd}/bin/loginctl terminate-user $USER && ${pkgs.sway}/bin/swaymsg mode default";
     };
     enableCompletion = true;
 

@@ -1,4 +1,4 @@
-{ config, pkgs, pkgs-unstable, ... }:
+{ config, pkgs, ... }:
 {
   wayland.windowManager.sway =
     let
@@ -15,10 +15,6 @@
     in
     {
       enable = true;
-      package = pkgs-unstable.swayfx;
-      /* while swayfx is broken, remove the following extra config options: */
-      /* corner_radius 4 */
-      /* blur enable */
       extraConfig = ''
         for_window [app_id="floating_shell"] floating enable, border pixel 1, sticky enable
         for_window [title="dmenu"] floating enable, border pixel 1, sticky enable
@@ -156,7 +152,7 @@
           "${cfg.modifier}+f" = "fullscreen toggle";
 
           # screen lock
-          "${cfg.modifier}+Shift+Space" = "exec ${pkgs.swaylock}/bin/swaylock && ${pkgs.swayfx}/bin/swaymsg mode default";
+          "${cfg.modifier}+Shift+Space" = "exec ${pkgs.swaylock}/bin/swaylock && ${pkgs.sway}/bin/swaymsg mode default";
 
           # Screenshot mode
           "Print" = "mode \"${modeScreenshot}\"";
@@ -177,8 +173,8 @@
         };
         modes = {
           "${modeScreenshot}" = {
-            "r" = "exec ${pkgs.swayfx}/bin/swaymsg mode default && ${pkgs.grim}/bin/grim -g \"$(${pkgs.slurp}/bin/slurp)\" - | ${pkgs.wl-clipboard}/bin/wl-copy";
-            "s" = "exec ${pkgs.swayfx}/bin/swaymsg mode default && ${pkgs.grim}/bin/grim -o \"$(${pkgs.swayfx}/bin/swaymsg -t get_outputs | ${pkgs.jq}/bin/jq -r '.[] | select(.focused)' | ${pkgs.jq}/bin/jq -r '.name')\" - | ${pkgs.wl-clipboard}/bin/wl-copy";
+            "r" = "exec ${pkgs.sway}/bin/swaymsg mode default && ${pkgs.grim}/bin/grim -g \"$(${pkgs.slurp}/bin/slurp)\" - | ${pkgs.wl-clipboard}/bin/wl-copy";
+            "s" = "exec ${pkgs.sway}/bin/swaymsg mode default && ${pkgs.grim}/bin/grim -o \"$(${pkgs.sway}/bin/swaymsg -t get_outputs | ${pkgs.jq}/bin/jq -r '.[] | select(.focused)' | ${pkgs.jq}/bin/jq -r '.name')\" - | ${pkgs.wl-clipboard}/bin/wl-copy";
             Escape = "mode default";
             Return = "mode default";
           };
