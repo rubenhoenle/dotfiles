@@ -4,6 +4,10 @@ on:
   schedule:
     - cron:  '0 4 * * *'
 
+permissions:
+  pull-requests: write
+  contents: write
+
 jobs:
   flake-update:
     name: Flake update
