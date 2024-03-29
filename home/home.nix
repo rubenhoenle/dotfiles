@@ -15,6 +15,8 @@
     vlc
     inkscape
 
+    element-desktop
+
     thonny
 
     # file manager
