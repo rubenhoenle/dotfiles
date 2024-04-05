@@ -47,6 +47,8 @@
 
     ripgrep
 
+    pkgs-unstable.protonmail-desktop
+
     # games
     prismlauncher-qt5
     openarena
