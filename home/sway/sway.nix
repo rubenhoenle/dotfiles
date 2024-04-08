@@ -85,11 +85,12 @@
         bars = [ ]; # managed as systemd user unit
         input = {
           "type:touchpad" = {
-            tap = "enabled";
+            tap = "disabled";
             natural_scroll = "enabled";
           };
           "type:keyboard" = {
             xkb_layout = "de";
+            xkb_options = "caps:escape";
           };
         };
         keybindings = {
