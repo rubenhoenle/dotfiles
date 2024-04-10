@@ -25,6 +25,8 @@ let
       /home/ruben/.zshenv
       /home/ruben/.zsh_history
       /home/ruben/.zshrc
+      /home/ruben/go
+      /home/ruben/Arduino
       node_modules
       __pycache__
       /home/ruben/nobackup
@@ -40,7 +42,8 @@ in
 
   config = mkIf (cfg.enable)
     {
-      services.restic.backups.backblaze = {
+      /* restic backup service to backblaze b2 bucket */
+      services.restic.backups.b2 = {
         user = "ruben";
         initialize = true;
         passwordFile = config.age.secrets.resticPassword.path;
@@ -62,16 +65,15 @@ in
         };
       };
 
-      systemd.user.services = {
-        restic_backup_to_harddrive = {
-          # systemctl list-units --type=mount
-          after = [ "run-media-ruben-SAMSUNG.mount" ];
-          requires = [ "run-media-ruben-SAMSUNG.mount" ];
-          wantedBy = [ "run-media-ruben-SAMSUNG.mount" ];
-          serviceConfig = {
-            ExecStart = "${pkgs.restic}/bin/restic backup -r ${localRepo} --exclude-caches --excludeFile=${excludeFile} --password-file ${resticPasswordFile} --one-file-system --tag systemd.timer /home/ruben";
-          };
-        };
+      /* restic backup service to a local drive */
+      services.restic.backups.hdd = {
+        user = "ruben";
+        initialize = true;
+        passwordFile = config.age.secrets.resticPassword.path;
+        repository = "/run/media/ruben/SAMSUNG/restic-nixos";
+        paths = [ "/home/ruben" ];
+        extraBackupArgs = [ "--exclude-caches" "--exclude-file=${excludeFile}" ];
+        timerConfig = null;
       };
     };
 }

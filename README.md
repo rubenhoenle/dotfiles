@@ -22,21 +22,34 @@ nix fmt
 ## Backups
 I use restic for my backups. The backups are stored on Backblaze B2 via the S3 API and on a local harddrive.
 
-### Checking the status of the backup service
-`systemctl status restic-backups-backblaze.service`
+### Backblaze B2 backup
 
-`systemctl start restic-backups-backblaze.service`
+The backup to Backblaze B2 is automated and runs every hour.
 
-`restic-backblaze snapshots`
+``` bash
+# showing the status of the backblaze b2 backup
+systemctl status restic-backups-b2.service
+
+# showing the snapshots of the backblaze b2 backup
+restic-b2 snapshots
+```
 
 ### Local harddrive backup
-#### Restoring the backups of the local harddrive
-[restic documentation for restoring](https://restic.readthedocs.io/en/latest/050_restore.html)
-``` bash
-export RESTIC_REPOSITORY=/run/media/ruben/SAMSUNG/restic
-export RESTIC_PASSWORD=<SECRET>
 
-restic restore latest --target /tmp/restore 
+[restic documentation for restoring](https://restic.readthedocs.io/en/latest/050_restore.html)
+
+``` bash
+# starting the HDD backup
+systemctl start restic-backups-hdd
+
+# showing the status of the HDD backup
+systemctl status restic-backups-hdd
+
+# showing the snapshots of the HDD backup
+restic-hdd snapshots
+
+# restoring the backup from the HDD
+restic-hdd restore latest --target /
 ```
 
 ## agenix
