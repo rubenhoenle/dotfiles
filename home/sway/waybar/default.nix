@@ -15,6 +15,7 @@
         modules-right = [
           # connecting
           "network"
+          "custom/vpn"
           "bluetooth"
           # media
           "idle_inhibitor"
@@ -28,6 +29,24 @@
         ];
 
         # modules
+        "custom/vpn" = {
+          interval = 10;
+          tooltip = false;
+          format = "VPN: {}";
+          exec = pkgs.writeShellScript "vpn-waybar" ''
+            is_con_active() {
+                return `${pkgs.networkmanager}/bin/nmcli connection show --active | ${pkgs.gnugrep}/bin/grep $1 > /dev/null`
+            }
+
+            if `is_con_active wg0`; then
+                echo 'wg0'
+            elif `is_con_active wg1`; then
+                echo 'wg1'
+            else
+                echo 'off'
+            fi
+          '';
+        };
         "custom/nixstore" = {
           exec = "${pkgs.coreutils}/bin/du -sh /nix/store | ${pkgs.gnused}/bin/sed 's/\\([0-9]\\+[A-Z]\\+\\).*/\\1/'";
           interval = 300;

@@ -14,12 +14,14 @@ in
 
       #environment.etc."resolv.conf".text = "nameserver 192.168.178.1\nnameserver 9.9.9.9";
 
-      networking.wireguard.interfaces = {
+      networking.wg-quick.interfaces = {
         # "wg0" is the network interface name. You can name the interface arbitrarily.
         wg0 = {
+          autostart = false;
           # Determines the IP address and subnet of the client's end of the tunnel interface.
-          ips = [ "192.168.178.201/24" ];
+          address = [ "192.168.178.201/24" ];
           listenPort = 51820; # to match firewall allowedUDPPorts (without this wg uses random port numbers)
+          dns = [ "192.168.178.5" ];
 
           privateKeyFile = config.age.secrets.wireguardPrivateKey.path;
 

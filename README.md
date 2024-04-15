@@ -1,7 +1,5 @@
 # NixOS Configuration
 
-## General
-
 ```bash
 sudo nixos-rebuild switch --flake .#deathstar
 

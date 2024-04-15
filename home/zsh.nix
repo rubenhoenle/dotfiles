@@ -21,6 +21,11 @@
       gloww = "glow README.md";
 
       logout = "exec ${pkgs.systemd}/bin/loginctl terminate-user $USER && ${pkgs.sway}/bin/swaymsg mode default";
+
+      # wireguard
+      wgu = "systemctl start wg-quick-wg0";
+      wgd = "systemctl stop wg-quick-wg0";
+      wgs = "systemctl status wg-quick-wg0";
     };
     enableCompletion = true;
 
