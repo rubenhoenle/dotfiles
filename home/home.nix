@@ -52,6 +52,8 @@
     # games
     prismlauncher-qt5
     openarena
+
+    chromium
   ];
 
 
