@@ -2,8 +2,6 @@
 with lib;
 let
   cfg = config.ruben.backup;
-  localRepo = "/run/media/ruben/SAMSUNG/restic-nixos";
-  resticPasswordFile = config.age.secrets.resticPassword.path;
   excludeFile = pkgs.writeText "restic-excludes.txt"
     ''
       /home/ruben/.bash_history
