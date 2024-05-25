@@ -19,18 +19,7 @@ in
         allowedUDPPorts = [ 25565 ];
       };
       hosts = {
-        "192.168.178.1" = [ "fritz.box" ];
         "192.168.178.2" = [ "synology" "synology.fritz.box" ];
-        "192.168.178.5" = [
-          "mandalore"
-          "home.hoenle.xyz"
-          "pad.home.hoenle.xyz"
-          "recipes.home.hoenle.xyz"
-          "paperless.home.hoenle.xyz"
-          "seafile.home.hoenle.xyz"
-          "cloud.home.hoenle.xyz"
-        ];
-        "192.168.178.20" = [ "printer01" "printer01.fritz.box" ];
       };
     };
   };
