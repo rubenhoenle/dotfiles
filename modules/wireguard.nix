@@ -35,7 +35,7 @@ in
 
               # Forward all the traffic via VPN.
               allowedIPs = [
-                #"0.0.0.0/0" 
+                "0.0.0.0/0"
                 "192.168.178.0/24"
               ];
               # Or forward only particular subnets

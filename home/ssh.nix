@@ -24,7 +24,7 @@
       };
       niklas = {
         host = "niklas";
-        hostname = "192.168.178.5";
+        hostname = "185.16.60.119";
         port = 69;
         user = "ruben";
       };
