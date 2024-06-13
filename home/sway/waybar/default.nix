@@ -13,6 +13,7 @@
         modules-left = [ "clock" "custom/nixstore" "sway/workspaces" ];
         modules-center = [ "sway/mode" ];
         modules-right = [
+          "sway/language"
           # connecting
           "network"
           "custom/vpn"
@@ -107,6 +108,12 @@
         "sway/mode" = {
           format = "<span style=\"italic\">{}</span>";
           tooltip = false;
+        };
+        "sway/language" = {
+          format = " {}";
+          min-length = 5;
+          tooltip = false;
+          on-click = "${pkgs.swayfx}/bin/swaymsg input $(${pkgs.swayfx}/bin/swaymsg -t get_inputs --raw | ${pkgs.jq}/bin/jq '[.[] | select(.type == \"keyboard\")][0] | .identifier') xkb_switch_layout next";
         };
         idle_inhibitor = {
           format = "{icon}";
