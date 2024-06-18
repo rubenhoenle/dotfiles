@@ -9,7 +9,6 @@
     yubikey-manager-qt # yubikey manager gui
     libreoffice
     cryptomator
-    syncthing
     pinta
     shutter
     vlc
@@ -17,10 +16,6 @@
 
     element-desktop
 
-    thonny
-
-    # file manager
-    gnome.nautilus
     evince # gnome pdf reader
     gnome.eog # gnome image viewer
 
@@ -91,5 +86,38 @@
 
     ./default-applications.nix
   ];
+
+  gtk = {
+    enable = true;
+    theme = {
+      package = pkgs.gnome.gnome-themes-extra;
+      name = "Adwaita-dark";
+    };
+    iconTheme = {
+      package = pkgs.gnome.adwaita-icon-theme;
+      name = "Adwaita";
+    };
+    /* Bookmarks in the sidebar of the GTK file browser */
+    gtk3.bookmarks = [
+      "file:///home/ruben/Developer Developer"
+      "file:///home/ruben/Documents/paperless_open paperless_open"
+      "file:///home/ruben/nobackup nobackup"
+      "file:///home/ruben/Downloads"
+      "file:///home/ruben/Documents"
+      "file:///home/ruben/NAS"
+      "file:///home/ruben/Pictures"
+      "file:///home/ruben/Videos Videos"
+      "file:///home/ruben/Music Music"
+    ];
+    gtk4.extraConfig = {
+      gtk-application-prefer-dark-theme = 1;
+    };
+  };
+
+  dconf.settings = {
+    "org/gnome/desktop/interface" = {
+      color-scheme = "prefer-dark";
+    };
+  };
 }
 
