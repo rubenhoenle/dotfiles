@@ -16,7 +16,4 @@
     LC_TELEPHONE = "de_DE.UTF-8";
     LC_TIME = "de_DE.UTF-8";
   };
-
-  # Configure console keymap
-  console.keyMap = "de";
 }

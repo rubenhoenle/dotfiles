@@ -5,6 +5,19 @@
       ./hardware/thinkpad-l560.nix
       {
         ruben.network.hostname = "tantive4";
+        console.keyMap = "de";
+      }
+    ];
+  }
+  {
+    name = "nbell-nixos";
+    nixosModules = [
+      ./hardware/thinkpad-l580.nix
+      {
+        ruben.network.hostname = "nbell-nixos";
+        console.keyMap = "de";
+
+        boot.initrd.luks.devices."luks-b98db7bc-7d65-49d9-b771-1eb36ee43027".device = "/dev/disk/by-uuid/b98db7bc-7d65-49d9-b771-1eb36ee43027";
       }
     ];
   }
@@ -14,6 +27,7 @@
       ./hardware/thinkpad-l590.nix
       {
         ruben.network.hostname = "deathstar";
+        console.keyMap = "de";
 
         # Setup keyfile
         boot.initrd.secrets = {
@@ -35,6 +49,8 @@
         ruben.backup.enable = true;
         #ruben.unbound.enable = true;
         ruben.wireguard.enable = true;
+
+        console.keyMap = "us";
 
         # Setup keyfile
         #boot.initrd.secrets = {

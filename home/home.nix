@@ -31,8 +31,6 @@
     curl
     dnsutils
 
-    # development
-    vscode
     insomnia
 
     restic
@@ -54,8 +52,19 @@
     openarena
 
     chromium
+
+    teams-for-linux
+    eclipses.eclipse-java
   ];
 
+  programs.vscode = {
+    enable = true;
+    extensions = with pkgs.vscode-extensions; [
+      vscodevim.vim
+      github.vscode-github-actions
+      sonarsource.sonarlint-vscode
+    ];
+  };
 
 
   home.stateVersion = "23.11";
