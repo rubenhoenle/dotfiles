@@ -34,6 +34,11 @@
         hostname = "github.com";
         port = 22;
       };
+      github-private = {
+        hostname = "github.com";
+        port = 22;
+        identityFile = [ "~/.ssh/id_ed25519_sk" ];
+      };
       gitlab = {
         hostname = "gitlab.com";
         port = 22;
