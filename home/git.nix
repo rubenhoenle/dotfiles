@@ -1,17 +1,23 @@
+{ osConfig, ... }:
+let
+  cfg = osConfig.ruben.git;
+in
 {
-  programs.git = {
-    enable = true;
-    userName = "ruben.hoenle";
-    userEmail = "ruben.hoenle@fntsoftware.com";
-    extraConfig = {
-      init = {
-        defaultBranch = "main";
-      };
-      push = {
-        autoSetupRemote = true;
-      };
-      pull = {
-        rebase = true;
+  config = {
+    programs.git = {
+      enable = true;
+      userName = cfg.name;
+      userEmail = cfg.mail;
+      extraConfig = {
+        init = {
+          defaultBranch = "main";
+        };
+        push = {
+          autoSetupRemote = true;
+        };
+        pull = {
+          rebase = true;
+        };
       };
     };
   };

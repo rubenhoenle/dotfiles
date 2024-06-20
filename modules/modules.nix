@@ -1,3 +1,4 @@
+{ lib, ... }:
 {
   imports = [
     ./sway.nix
@@ -18,4 +19,13 @@
     ./users.nix
     ./wireguard.nix
   ];
+
+  options.ruben.git = {
+    name = lib.mkOption {
+      default = "Ruben Hoenle";
+    };
+    mail = lib.mkOption {
+      default = "git@hoenle.xyz";
+    };
+  };
 }
