@@ -12,6 +12,9 @@ fwupdmgr update
 
 # code formatting
 nix fmt
+
+# The `clonerer` is a shitty bash script, which clones the defined git repos and adds the given git remotes to them.
+clonerer
 ```
 
 - [NixOS Package and option search](https://search.nixos.org)

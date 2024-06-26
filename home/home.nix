@@ -76,6 +76,7 @@
   xdg.enable = true;
 
   imports = [
+    ./clonerer.nix
     ./firefox.nix
     ./git.nix
     ./ssh.nix
