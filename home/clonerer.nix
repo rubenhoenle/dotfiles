@@ -11,6 +11,11 @@ let
       origin = "git@github.com:rubenhoenle/Matrix-MQTT-Bridge.git";
     }
     {
+      name = "texerer";
+      path = "${gitBasePath}";
+      origin = "git@github.com:rubenhoenle/texerer.git";
+    }
+    {
       name = "NixOServer";
       path = "${gitBasePath}";
       origin = "git@github.com:rubenhoenle/NixOServer.git";
@@ -51,6 +56,17 @@ let
       origin = "git@github.com:rubenhoenle/wiki.git";
     }
     {
+      name = "NixOS";
+      path = "/home/ruben";
+      origin = "git@github.com:rubenhoenle/dotfiles.git";
+      remotes = {
+        jgero = "git@github.com:jgero/dotfiles.git";
+        golo300 = "git@github.com:Golo300/dotfiles.git";
+        mschwer = "git@github.com:Markus-Schwer/dotfiles.git";
+        sezuisa = "git@github.com:sezuisa/dotfiles.git";
+      };
+    }
+    {
       /* golo300 dotfiles */
       name = "golo300";
       path = "${gitBasePath}/bromance-dotfiles";
@@ -77,6 +93,16 @@ let
       origin = "git@github.com:rubenhoenle/Markus-Schwer-dotfiles.git";
       remotes = {
         upstream = "git@github.com:Markus-Schwer/dotfiles.git";
+        ruben = "git@github.com:rubenhoenle/dotfiles.git";
+      };
+    }
+    {
+      /* sezuisa dotfiles */
+      name = "sezuisa";
+      path = "${gitBasePath}/bromance-dotfiles";
+      origin = "git@github.com:rubenhoenle/sezuisa-dotfiles.git";
+      remotes = {
+        upstream = "git@github.com:sezuisa/dotfiles.git";
         ruben = "git@github.com:rubenhoenle/dotfiles.git";
       };
     }

@@ -4,5 +4,6 @@
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
     #google-fonts
     corefonts
+    #nerdfonts
   ];
 }
