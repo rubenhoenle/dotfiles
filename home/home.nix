@@ -14,6 +14,8 @@
     vlc
     inkscape
 
+    gnome.gnome-calculator
+
     element-desktop
 
     evince # gnome pdf reader
@@ -43,7 +45,7 @@
     pkgs-unstable.protonmail-desktop
 
     # games
-    prismlauncher-qt5
+    prismlauncher
     openarena
 
     chromium

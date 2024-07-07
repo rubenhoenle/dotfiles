@@ -29,7 +29,7 @@
         };
       in
       [
-        nvim-treesitter
+        nvim-treesitter.withAllGrammars
         nvim-lspconfig
 
         onedark-nvim
