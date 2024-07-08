@@ -44,6 +44,8 @@
 
     pkgs-unstable.protonmail-desktop
 
+    pkgs-unstable.container-structure-test
+
     # games
     prismlauncher
     openarena
