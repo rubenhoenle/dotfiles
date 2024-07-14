@@ -53,6 +53,16 @@ restic-hdd snapshots
 restic-hdd restore latest --target /
 ```
 
+## Fingerprint authentication
+
+```bash
+# add fingerprint
+sudo fprintd-enroll ruben
+
+# verify fingerprint
+sudo fprintd-verify ruben
+```
+
 ## agenix
 
 [agenix](https://github.com/ryantm/agenix) is a tool for encrypted secrets in your NixOS config.

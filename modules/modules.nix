@@ -6,6 +6,7 @@
     ./bluetooth.nix
     ./boot.nix
     ./docker.nix
+    ./fingerprint.nix
     ./firmware.nix
     ./fonts.nix
     ./gtk.nix
