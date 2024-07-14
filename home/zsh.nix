@@ -26,6 +26,9 @@
       wgu = "systemctl start wg-quick-wg0";
       wgd = "systemctl stop wg-quick-wg0";
       wgs = "systemctl status wg-quick-wg0";
+
+      # calendar
+      kal = "khal interactive";
     };
     enableCompletion = true;
 

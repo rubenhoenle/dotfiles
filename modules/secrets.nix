@@ -20,4 +20,9 @@
     owner = "ruben";
     group = "users";
   };
+  age.secrets.nextcloudCalendarToken = {
+    file = ../secrets/nextcloud-calendar-token.age;
+    owner = "ruben";
+    group = "users";
+  };
 }

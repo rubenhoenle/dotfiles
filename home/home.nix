@@ -93,6 +93,8 @@
     ./sway/default.nix
     ./neovim/neovim.nix
 
+    ./calendar.nix
+
     ./default-applications.nix
   ];
 

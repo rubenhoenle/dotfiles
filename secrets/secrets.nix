@@ -7,4 +7,5 @@ in
   "backblaze-b2-restic-s3-secrets.age".publicKeys = [ deathstar millenium-falcon ];
   "wireguard-private-key.age".publicKeys = [ millenium-falcon ];
   "wireguard-preshared-key.age".publicKeys = [ millenium-falcon ];
+  "nextcloud-calendar-token.age".publicKeys = [ millenium-falcon ];
 }
