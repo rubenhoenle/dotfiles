@@ -1,3 +1,5 @@
+[![run flake check](https://github.com/rubenhoenle/dotfiles/actions/workflows/build.yaml/badge.svg?branch=main)](https://github.com/rubenhoenle/dotfiles/actions/workflows/build.yaml)
+
 # NixOS Configuration
 
 ```bash
