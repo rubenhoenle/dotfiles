@@ -8,4 +8,5 @@ in
   "wireguard-private-key.age".publicKeys = [ millenium-falcon ];
   "wireguard-preshared-key.age".publicKeys = [ millenium-falcon ];
   "nextcloud-calendar-token.age".publicKeys = [ millenium-falcon ];
+  "mailbox-org-password.age".publicKeys = [ millenium-falcon ];
 }
