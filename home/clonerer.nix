@@ -2,9 +2,15 @@
 let
   /* The 'clonerer' is a tool which clones git repos to specified locations and sets up additional git remotes for them. */
 
-  #gitBasePath = "/home/ruben/Developer/git";
-  gitBasePath = "/home/ruben/automated-developer/git";
+  gitBasePath = "/home/ruben/Developer/git";
+  bromanceDotfilesPath = "${gitBasePath}/BROMANCE-DOTFILES";
+  hackwerkReposPath = "${gitBasePath}/HACKWERK";
   configFile = pkgs.writeText "clonerer-config.json" (builtins.toJSON [
+    {
+      name = "blog";
+      path = "${gitBasePath}";
+      origin = "git@github.com:rubenhoenle/rubenhoenle.github.io.git";
+    }
     {
       name = "Matrix-MQTT-Bridge";
       path = "${gitBasePath}";
@@ -69,7 +75,7 @@ let
     {
       /* golo300 dotfiles */
       name = "golo300";
-      path = "${gitBasePath}/bromance-dotfiles";
+      path = "${bromanceDotfilesPath}";
       origin = "git@github.com:rubenhoenle/golo300-dotfiles.git";
       remotes = {
         upstream = "git@github.com:Golo300/dotfiles.git";
@@ -79,7 +85,7 @@ let
     {
       /* jgero dotfiles */
       name = "jgero";
-      path = "${gitBasePath}/bromance-dotfiles";
+      path = "${bromanceDotfilesPath}";
       origin = "git@github.com:rubenhoenle/jgero-dotfiles.git";
       remotes = {
         upstream = "git@github.com:jgero/dotfiles.git";
@@ -89,7 +95,7 @@ let
     {
       /* mschwer dotfiles */
       name = "mschwer";
-      path = "${gitBasePath}/bromance-dotfiles";
+      path = "${bromanceDotfilesPath}";
       origin = "git@github.com:rubenhoenle/Markus-Schwer-dotfiles.git";
       remotes = {
         upstream = "git@github.com:Markus-Schwer/dotfiles.git";
@@ -99,12 +105,32 @@ let
     {
       /* sezuisa dotfiles */
       name = "sezuisa";
-      path = "${gitBasePath}/bromance-dotfiles";
+      path = "${bromanceDotfilesPath}";
       origin = "git@github.com:rubenhoenle/sezuisa-dotfiles.git";
       remotes = {
         upstream = "git@github.com:sezuisa/dotfiles.git";
         ruben = "git@github.com:rubenhoenle/dotfiles.git";
       };
+    }
+    {
+      name = "space-notebooks";
+      path = "${hackwerkReposPath}";
+      origin = "git@gitlab.com:sfz.aalen/infra/space-notebooks.git";
+    }
+    {
+      name = "MirAAkunix";
+      path = "${hackwerkReposPath}";
+      origin = "git@gitlab.com:sfz.aalen/infra/miraakunix.git";
+    }
+    {
+      name = "dotinder";
+      path = "${hackwerkReposPath}";
+      origin = "git@gitlab.com:sfz.aalen/hackwerk/dotinder.git";
+    }
+    {
+      name = "hackwerk_homepage";
+      path = "${hackwerkReposPath}";
+      origin = "git@gitlab.com:sfz.aalen/hackwerk/hackwerk_homepage.git";
     }
   ]);
 
