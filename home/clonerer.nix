@@ -132,6 +132,11 @@ let
       path = "${hackwerkReposPath}";
       origin = "git@gitlab.com:sfz.aalen/hackwerk/hackwerk_homepage.git";
     }
+    {
+      name = "eventserver";
+      path = "${hackwerkReposPath}";
+      origin = "git@gitlab.com:sfz.aalen/infra/eventserver.git";
+    }
   ]);
 
   clonerer = pkgs.writeShellApplication {
