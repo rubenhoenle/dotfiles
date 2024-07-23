@@ -29,4 +29,8 @@
       default = "git@hoenle.xyz";
     };
   };
+
+  options.ruben.host = {
+    work = lib.mkEnableOption "work machine host options";
+  };
 }

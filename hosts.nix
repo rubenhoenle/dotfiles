@@ -9,8 +9,11 @@
 
         ruben.git.name = "ruben.hoenle";
         ruben.git.mail = "ruben.hoenle@fntsoftware.com";
+        ruben.host.work = true;
 
         boot.initrd.luks.devices."luks-b98db7bc-7d65-49d9-b771-1eb36ee43027".device = "/dev/disk/by-uuid/b98db7bc-7d65-49d9-b771-1eb36ee43027";
+
+        system.stateVersion = "23.11";
       }
     ];
   }
@@ -30,6 +33,8 @@
           device = "/var/lib/swapfile";
           size = 16 * 1024;
         }];
+
+        system.stateVersion = "23.11";
       }
     ];
   }

@@ -1,23 +1,20 @@
-{ pkgs, pkgs-unstable, ... }:
+{ pkgs, pkgs-unstable, osConfig, ... }:
+let
+  user = "ruben";
+in
 {
   home.packages = with pkgs; [
     # desktop applications
-    spotify
-    signal-desktop
     yubioath-flutter
     yubikey-manager # yubikey manager cli
     yubikey-manager-qt # yubikey manager gui
     libreoffice
-    cryptomator
     pinta
     shutter
     vlc
     inkscape
 
     gnome.gnome-calculator
-
-    element-desktop
-
     evince # gnome pdf reader
     gnome.eog # gnome image viewer
 
@@ -30,10 +27,8 @@
 
     insomnia
 
-    restic
     screenfetch
     neofetch
-    asciiquarium
     cmatrix
     nix-zsh-completions
     xclip
@@ -41,39 +36,33 @@
     glow
 
     ripgrep
-
     pkgs-unstable.protonmail-desktop
-
     pkgs-unstable.container-structure-test
-
-    # games
-    prismlauncher
-    openarena
-
     chromium
 
-    teams-for-linux
-    eclipses.eclipse-java
-  ];
+    pkgs.spotify
+  ] ++ (if osConfig.ruben.host.work then [
+    # work applications
+    pkgs.teams-for-linux
+    pkgs.postman
+    pkgs.dbeaver-bin
+    pkgs.jetbrains.idea-community-bin
+    pkgs.thunderbird
+  ] else [
+    # private applications
+    pkgs.cryptomator
+    pkgs.signal-desktop
+    pkgs.element-desktop
 
-  programs.vscode = {
-    enable = true;
-    extensions = with pkgs.vscode-extensions; [
-      vscodevim.vim
-      github.vscode-github-actions
-      sonarsource.sonarlint-vscode
-    ];
-    userSettings = {
-      "terminal.integrated.gpuAcceleration" = "off";
-      "workbench.editor.wrapTabs" = true;
-    };
-  };
+    # games
+    pkgs.prismlauncher
+    pkgs.openarena
+  ]);
 
+  home.stateVersion = osConfig.system.stateVersion;
 
-  home.stateVersion = "23.11";
-
-  home.username = "ruben";
-  home.homeDirectory = "/home/ruben";
+  home.username = user;
+  home.homeDirectory = "/home/${user}";
 
   programs.home-manager.enable = true;
   programs.bash.enable = true;
@@ -84,18 +73,17 @@
   xdg.enable = true;
 
   imports = [
+    ./calendar.nix
     ./clonerer.nix
+    ./default-applications.nix
     ./firefox.nix
     ./git.nix
-    ./ssh.nix
-    ./vim.nix
-    ./zsh.nix
-    ./sway/default.nix
     ./neovim/neovim.nix
-
-    ./calendar.nix
-
-    ./default-applications.nix
+    ./ssh.nix
+    ./sway/default.nix
+    ./vim.nix
+    ./vscode.nix
+    ./zsh.nix
   ];
 
   gtk = {
@@ -110,15 +98,15 @@
     };
     /* Bookmarks in the sidebar of the GTK file browser */
     gtk3.bookmarks = [
-      "file:///home/ruben/Developer Developer"
-      "file:///home/ruben/Documents/paperless_open paperless_open"
-      "file:///home/ruben/nobackup nobackup"
-      "file:///home/ruben/Downloads"
-      "file:///home/ruben/Documents"
-      "file:///home/ruben/NAS"
-      "file:///home/ruben/Pictures"
-      "file:///home/ruben/Videos Videos"
-      "file:///home/ruben/Music Music"
+      "file:///home/${user}/Developer Developer"
+      "file:///home/${user}/Documents/paperless_open paperless_open"
+      "file:///home/${user}/nobackup nobackup"
+      "file:///home/${user}/Downloads"
+      "file:///home/${user}/Documents"
+      "file:///home/${user}/NAS"
+      "file:///home/${user}/Pictures"
+      "file:///home/${user}/Videos Videos"
+      "file:///home/${user}/Music Music"
     ];
     gtk4.extraConfig = {
       gtk-application-prefer-dark-theme = 1;
