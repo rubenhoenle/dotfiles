@@ -18,6 +18,8 @@ in
     evince # gnome pdf reader
     gnome.eog # gnome image viewer
 
+    openvpn
+
     tldr
     zip
     unzip

@@ -89,7 +89,7 @@
             natural_scroll = "enabled";
           };
           "type:keyboard" = {
-            xkb_layout = "us,de";
+            xkb_layout = "us,eu,de";
             xkb_options = "caps:escape";
           };
         };
