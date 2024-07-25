@@ -5,7 +5,6 @@
     ./backup.nix
     ./bluetooth.nix
     ./boot.nix
-    ./docker.nix
     ./fingerprint.nix
     ./firmware.nix
     ./fonts.nix
@@ -13,6 +12,7 @@
     ./locales.nix
     ./network.nix
     ./nix.nix
+    ./podman.nix
     ./printing.nix
     ./secrets.nix
     ./sound.nix

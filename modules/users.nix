@@ -7,7 +7,6 @@
     extraGroups = [
       "networkmanager"
       "wheel"
-      "docker"
       "video"
       "dialout" # for arduino 
     ];
