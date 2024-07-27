@@ -66,10 +66,21 @@ let
       path = "/home/ruben";
       origin = "git@github.com:rubenhoenle/dotfiles.git";
       remotes = {
+        linus = "git@gitlab.com:Lutzlin-peu/dotfiles.git";
         jgero = "git@github.com:jgero/dotfiles.git";
         golo300 = "git@github.com:Golo300/dotfiles.git";
         mschwer = "git@github.com:Markus-Schwer/dotfiles.git";
         sezuisa = "git@github.com:sezuisa/dotfiles.git";
+      };
+    }
+    {
+      /* linus dotfiles */
+      name = "linus";
+      path = "${bromanceDotfilesPath}";
+      origin = "git@gitlab.com:rubenhoenle/lutzlin-peu-dotfiles.git";
+      remotes = {
+        upstream = "git@gitlab.com:Lutzlin-peu/dotfiles.git";
+        ruben = "git@github.com:rubenhoenle/dotfiles.git";
       };
     }
     {
