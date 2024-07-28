@@ -34,7 +34,7 @@ in
     cmatrix
     nix-zsh-completions
     xclip
-    htop
+    btop
     glow
 
     ripgrep
