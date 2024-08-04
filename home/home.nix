@@ -27,7 +27,7 @@ in
     curl
     dnsutils
 
-    insomnia
+    bruno
 
     screenfetch
     neofetch
@@ -45,12 +45,13 @@ in
     podman-compose
 
     pkgs.spotify
+
+    pkgs.jetbrains.idea-community-bin
   ] ++ (if osConfig.ruben.host.work then [
     # work applications
     pkgs.teams-for-linux
     pkgs.postman
     pkgs.dbeaver-bin
-    pkgs.jetbrains.idea-community-bin
     pkgs.thunderbird
   ] else [
     # private applications

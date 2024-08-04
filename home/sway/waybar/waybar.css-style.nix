@@ -61,6 +61,7 @@ in
     /* Each module */
     #custom-nixstore,
     #custom-vpn,
+    #custom-spacestatus,
     #custom-clipboard,
     #custom-dnd,
     #bluetooth,
@@ -84,6 +85,7 @@ in
     /* Joined modules */
     #custom-nixstore,
     #custom-vpn,
+    #custom-spacestatus,
     #custom-dnd,
     #bluetooth,
     #battery,

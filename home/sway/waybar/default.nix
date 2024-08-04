@@ -17,6 +17,7 @@
           # connecting
           "network"
           "custom/vpn"
+          "custom/spacestatus"
           "bluetooth"
           # media
           "idle_inhibitor"
@@ -46,6 +47,14 @@
             else
                 echo 'off'
             fi
+          '';
+        };
+        "custom/spacestatus" = {
+          interval = 10;
+          tooltip = false;
+          format = "SPACESTATUS: {}";
+          exec = pkgs.writeShellScript "spacestatus-waybar" ''
+            ${pkgs.curl}/bin/curl -s https://spaceapi.sfz-aalen.space/api/spaceapi.json | ${pkgs.jq}/bin/jq '.state.open'
           '';
         };
         "custom/nixstore" = {

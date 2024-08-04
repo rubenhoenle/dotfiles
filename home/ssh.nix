@@ -40,7 +40,7 @@
       };
 
       # git remotes
-      github = {
+      "github.com" = {
         hostname = "github.com";
         port = 22;
       };
@@ -49,7 +49,7 @@
         port = 22;
         identityFile = [ "~/.ssh/id_ed25519_sk" ];
       };
-      gitlab = {
+      "gitlab.com" = {
         hostname = "gitlab.com";
         port = 22;
       };
