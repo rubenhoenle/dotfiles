@@ -42,6 +42,8 @@ in
     pkgs-unstable.container-structure-test
     chromium
 
+    podman-compose
+
     pkgs.spotify
   ] ++ (if osConfig.ruben.host.work then [
     # work applications
