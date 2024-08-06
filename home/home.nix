@@ -5,9 +5,7 @@ in
 {
   home.packages = with pkgs; [
     # desktop applications
-    yubioath-flutter
     yubikey-manager # yubikey manager cli
-    yubikey-manager-qt # yubikey manager gui
     libreoffice
     pinta
     shutter
@@ -18,8 +16,6 @@ in
     evince # gnome pdf reader
     gnome.eog # gnome image viewer
 
-    openvpn
-
     tldr
     zip
     unzip
@@ -29,8 +25,6 @@ in
 
     bruno
 
-    screenfetch
-    neofetch
     cmatrix
     nix-zsh-completions
     xclip
@@ -45,6 +39,8 @@ in
     podman-compose
 
     pkgs.spotify
+    pkgs.signal-desktop
+    pkgs.element-desktop
 
     pkgs.jetbrains.idea-community-bin
   ] ++ (if osConfig.ruben.host.work then [
@@ -56,12 +52,10 @@ in
   ] else [
     # private applications
     pkgs.cryptomator
-    pkgs.signal-desktop
-    pkgs.element-desktop
+    pkgs.openvpn
 
     # games
     pkgs.prismlauncher
-    pkgs.openarena
   ]);
 
   home.stateVersion = osConfig.system.stateVersion;
