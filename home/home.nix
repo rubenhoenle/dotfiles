@@ -1,6 +1,9 @@
 { pkgs, pkgs-unstable, osConfig, ... }:
 let
   user = "ruben";
+  idea = pkgs.writeShellScriptBin "idea" ''
+    ${pkgs.jetbrains.idea-community-bin}/bin/idea-community "$1" >/dev/null 2>&1 & 
+  '';
 in
 {
   home.packages = with pkgs; [
@@ -43,6 +46,8 @@ in
     pkgs.element-desktop
 
     pkgs.jetbrains.idea-community-bin
+
+    idea
   ] ++ (if osConfig.ruben.host.work then [
     # work applications
     pkgs.teams-for-linux
@@ -96,17 +101,21 @@ in
       name = "Adwaita";
     };
     /* Bookmarks in the sidebar of the GTK file browser */
-    gtk3.bookmarks = [
-      "file:///home/${user}/Developer Developer"
-      "file:///home/${user}/Documents/paperless_open paperless_open"
-      "file:///home/${user}/nobackup nobackup"
-      "file:///home/${user}/Downloads"
-      "file:///home/${user}/Documents"
-      "file:///home/${user}/NAS"
-      "file:///home/${user}/Pictures"
-      "file:///home/${user}/Videos Videos"
-      "file:///home/${user}/Music Music"
-    ];
+    gtk3.bookmarks =
+      let
+        prefix = "file:///home/${user}";
+      in
+      [
+        "${prefix}/Developer Developer"
+        "${prefix}/Documents/paperless_open paperless_open"
+        "${prefix}/nobackup nobackup"
+        "${prefix}/Downloads"
+        "${prefix}/Documents"
+        "${prefix}/Pictures"
+        "${prefix}/Videos Videos"
+        "${prefix}/Music Music"
+        "${prefix}/.local/share/Cryptomator/mnt/Archive-Vault"
+      ];
     gtk4.extraConfig = {
       gtk-application-prefer-dark-theme = 1;
     };

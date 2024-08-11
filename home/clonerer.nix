@@ -7,7 +7,7 @@ let
   hackwerkReposPath = "${gitBasePath}/HACKWERK";
   configFile = pkgs.writeText "clonerer-config.json" (builtins.toJSON [
     {
-      name = "blog";
+      name = "homepage";
       path = "${gitBasePath}";
       origin = "git@github.com:rubenhoenle/rubenhoenle.github.io.git";
     }
