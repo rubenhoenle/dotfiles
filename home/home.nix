@@ -4,6 +4,9 @@ let
   idea = pkgs.writeShellScriptBin "idea" ''
     ${pkgs.jetbrains.idea-community-bin}/bin/idea-community "$1" >/dev/null 2>&1 & 
   '';
+  weather = pkgs.writeShellScriptBin "weather" ''
+    ${pkgs.curl}/bin/curl wttr.in
+  '';
 in
 {
   home.packages = with pkgs; [
@@ -48,6 +51,7 @@ in
     pkgs.jetbrains.idea-community-bin
 
     idea
+    weather
   ] ++ (if osConfig.ruben.host.work then [
     # work applications
     pkgs.teams-for-linux
