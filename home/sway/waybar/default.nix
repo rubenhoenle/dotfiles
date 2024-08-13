@@ -52,10 +52,23 @@
         "custom/spacestatus" = {
           interval = 10;
           tooltip = false;
-          format = "SPACESTATUS: {}";
+          format = "SPACESTATUS: {icon}";
+          return-type = "json";
           exec = pkgs.writeShellScript "spacestatus-waybar" ''
-            ${pkgs.curl}/bin/curl -s https://spaceapi.sfz-aalen.space/api/spaceapi.json | ${pkgs.jq}/bin/jq '.state.open'
+            is_open() {
+                echo `${pkgs.curl}/bin/curl -s https://spaceapi.sfz-aalen.space/api/spaceapi.json | ${pkgs.jq}/bin/jq '.state.open'`
+            }
+
+            if `is_open = "true"`; then
+              echo '{"alt":"green"}';
+            else
+              echo '{"alt":"red"}';
+            fi
           '';
+          format-icons = {
+            green = "<span color='#008000'>●</span>";
+            red = "<span color='#c30010'>●</span>";
+          };
         };
         "custom/nixstore" = {
           exec = "${pkgs.coreutils}/bin/du -sh /nix/store | ${pkgs.gnused}/bin/sed 's/\\([0-9]\\+[A-Z]\\+\\).*/\\1/'";
