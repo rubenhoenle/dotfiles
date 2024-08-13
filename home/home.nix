@@ -73,7 +73,6 @@ in
   home.homeDirectory = "/home/${user}";
 
   programs.home-manager.enable = true;
-  programs.bash.enable = true;
 
   # make neovim the default editor
   programs.neovim.defaultEditor = true;
@@ -87,11 +86,12 @@ in
     ./firefox.nix
     ./git.nix
     ./neovim/neovim.nix
+    ./selecterer.nix
+    ./shell.nix
     ./ssh.nix
     ./sway/default.nix
     ./vim.nix
     ./vscode.nix
-    ./zsh.nix
   ];
 
   gtk = {
