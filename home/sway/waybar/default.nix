@@ -20,7 +20,6 @@
           "custom/spacestatus"
           "bluetooth"
           # media
-          "idle_inhibitor"
           "wireplumber"
           "backlight"
           # informational
@@ -136,14 +135,6 @@
           min-length = 5;
           tooltip = false;
           on-click = "${pkgs.swayfx}/bin/swaymsg input $(${pkgs.swayfx}/bin/swaymsg -t get_inputs --raw | ${pkgs.jq}/bin/jq '[.[] | select(.type == \"keyboard\")][0] | .identifier') xkb_switch_layout next";
-        };
-        idle_inhibitor = {
-          format = "{icon}";
-          format-icons = {
-            activated = "PERFORMANCE";
-            deactivated = "POWERSAVER";
-          };
-          tooltip = false;
         };
         backlight = {
           tooltip = false;

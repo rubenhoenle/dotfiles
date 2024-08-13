@@ -73,7 +73,6 @@ in
     #network,
     #wireplumber,
     #temperature,
-    #idle_inhibitor,
     #backlight,
     #language,
     #custom-playerctl,
@@ -96,7 +95,6 @@ in
     #network,
     #wireplumber,
     #temperature,
-    #idle_inhibitor,
     #backlight,
     #language,
     #custom-playerctl {
