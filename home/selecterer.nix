@@ -1,17 +1,8 @@
 { pkgs, ... }:
 let
   selecterer = pkgs.writeScriptBin "selecterer" ''
-    if [[ "$#" -eq 1 ]]; then
-        # if an argument was given use this as selection target
-        selected="$1"
-    else
-        # get a project from the pre-specified directories
-        selected=$(${pkgs.findutils}/bin/find \
-            $HOME/Developer/git \
-            $HOME/Developer/git/HACKWERK \
-            $HOME/Developer/git/BROMANCE-DOTFILES \
-            -mindepth 1 -maxdepth 1 -type d | ${pkgs.fzf}/bin/fzf)
-    fi
+    SEARCH_DIR=/home/ruben/Developer/git
+    selected=$(find "$SEARCH_DIR" -type d -name ".git" | sed 's/\/.git$//' | ${pkgs.fzf}/bin/fzf --height=20% --reverse --info=inline --prompt="Select a repository: ")
 
     # exit if no project was selected
     if [[ -z "$selected" ]]; then
