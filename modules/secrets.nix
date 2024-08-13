@@ -20,11 +20,6 @@
     owner = "ruben";
     group = "users";
   };
-  age.secrets.nextcloudCalendarToken = {
-    file = ../secrets/nextcloud-calendar-token.age;
-    owner = "ruben";
-    group = "users";
-  };
   age.secrets.mailboxOrgPassword = {
     file = ../secrets/mailbox-org-password.age;
     owner = "ruben";

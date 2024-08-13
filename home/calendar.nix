@@ -20,24 +20,6 @@ in
     basePath = "/home/ruben/.calendars";
 
     accounts = {
-      nextcloud = {
-        khal = common.khal;
-        local = common.local;
-
-        remote = {
-          type = "caldav";
-          url = "https://cloud.hoenle.xyz/remote.php/dav";
-          userName = "ruben";
-          passwordCommand = [ "${pkgs.coreutils}/bin/cat" osConfig.age.secrets.nextcloudCalendarToken.path ];
-        };
-
-        vdirsyncer = {
-          enable = true;
-          metadata = [ "color" ];
-          collections = [ "persnlich" ];
-          conflictResolution = "remote wins";
-        };
-      };
       mailbox_org = {
         khal = common.khal;
         local = common.local;

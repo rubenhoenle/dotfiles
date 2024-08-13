@@ -3,7 +3,7 @@
 # NixOS Configuration
 
 ```bash
-sudo nixos-rebuild switch --flake .#deathstar
+sudo nixos-rebuild switch --flake .#millenium-falcon
 
 # temporary package installation
 nix-shell -p <package_name>
