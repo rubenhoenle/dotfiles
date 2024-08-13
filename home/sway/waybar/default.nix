@@ -52,7 +52,7 @@
         "custom/spacestatus" = {
           interval = 10;
           tooltip = false;
-          format = "SPACESTATUS: {icon}";
+          format = "SPACE: {icon}";
           return-type = "json";
           exec = pkgs.writeShellScript "spacestatus-waybar" ''
             is_open() {
