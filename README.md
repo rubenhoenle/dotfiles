@@ -117,4 +117,5 @@ Don't forget to set the proper sleep state option (`Linux`) in the BIOS in menu 
 
 ### Links
 - https://discourse.nixos.org/t/error-after-updating-flakes/34028
+- https://discourse.nixos.org/t/how-to-ensure-all-packages-are-available-in-cache-nixos-org-on-nix-flake-update/37209
 
