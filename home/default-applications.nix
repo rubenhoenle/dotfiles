@@ -1,4 +1,7 @@
+{ lib, config, ... }:
 {
+  xdg.configFile."mimeapps.list" = lib.mkIf config.xdg.mimeApps.enable { force = true; };
+
   xdg.mimeApps = {
     enable = true;
 

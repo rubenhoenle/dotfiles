@@ -7,6 +7,12 @@ let
   weather = pkgs.writeShellScriptBin "weather" ''
     ${pkgs.curl}/bin/curl wttr.in
   '';
+  fs-mount = pkgs.writeShellScriptBin "fs-mount" ''
+    ${pkgs.sshfs}/bin/sshfs -oport=69 fileserver@192.168.178.5:/home/fileserver /home/ruben/fileserver
+  '';
+  fs-unmount = pkgs.writeShellScriptBin "fs-unmount" ''
+    fusermount -u /home/ruben/fileserver
+  '';
 in
 {
   home.packages = with pkgs; [
@@ -52,6 +58,7 @@ in
 
     idea
     weather
+
   ] ++ (if osConfig.ruben.host.work then [
     # work applications
     pkgs.teams-for-linux
@@ -65,6 +72,10 @@ in
 
     # games
     pkgs.prismlauncher
+
+    # fileserver
+    fs-mount
+    fs-unmount
   ]);
 
   home.stateVersion = osConfig.system.stateVersion;
@@ -116,9 +127,6 @@ in
         "${prefix}/Downloads"
         "${prefix}/Documents"
         "${prefix}/Pictures"
-        "${prefix}/Videos Videos"
-        "${prefix}/Music Music"
-        "${prefix}/.local/share/Cryptomator/mnt/Archive-Vault"
       ];
     gtk4.extraConfig = {
       gtk-application-prefer-dark-theme = 1;
