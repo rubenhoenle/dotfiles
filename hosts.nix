@@ -1,9 +1,10 @@
-{ nixos-hardware }: [
+{ nixos-hardware, disko }: [
   {
     name = "nbell-nixos";
     nixosModules = [
       ./hardware/thinkpad-l580.nix
       {
+
         ruben.network.hostname = "nbell-nixos";
         console.keyMap = "de";
 
@@ -14,6 +15,21 @@
         boot.initrd.luks.devices."luks-b98db7bc-7d65-49d9-b771-1eb36ee43027".device = "/dev/disk/by-uuid/b98db7bc-7d65-49d9-b771-1eb36ee43027";
 
         system.stateVersion = "23.11";
+      }
+    ];
+  }
+  {
+    name = "deathstar";
+    nixosModules = [
+      disko.nixosModules.disko
+      (import ./disko-config.nix { disk = "/dev/nvme0n1"; })
+      ./hardware/thinkpad-t14s.nix
+      {
+        ruben.network.hostname = "deathstar";
+
+        console.keyMap = "de";
+
+        system.stateVersion = "24.05";
       }
     ];
   }
