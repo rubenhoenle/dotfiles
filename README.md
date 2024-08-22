@@ -22,6 +22,18 @@ clonerer
 - [NixOS Package and option search](https://search.nixos.org)
 - [Home manager option search](https://home-manager-options.extranix.com)
 
+## Installation
+
+1. Boot into a NixOS 24.05 minimal ISO
+2. If you want to use WiFi in the minimal ISO create config: `wpa_passphrase <SSID> <PW> | sudo tee /etc/wpa_supplicant.conf` activate it: `sudo wpa_supplicant -B -c /etc/wpa_supplicant.conf -i wlp5s0` 
+3. Run `sudo nix --experimental-features "nix-command flakes" run github:nix-community/disko -- --mode disko --flake github:rubenhoenle/dotfiles/main#deathstar --arg disk '"/dev/nvme0n1"'`
+4. Run `sudo nixos-install --flake github:rubenhoenle/dotfiles#deathstar`
+5. Reboot
+6. Login using `root`
+7. Open a Terminal using `Mod` + `Enter`
+8. `cd /home/ruben`
+9. `git clone git@github.com:rubenhoenle/dotfiles.git`
+
 ## Backups
 I use restic for my backups. The backups are stored on Backblaze B2 via the S3 API and on a local harddrive.
 
