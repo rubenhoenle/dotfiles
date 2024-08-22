@@ -22,7 +22,6 @@ in
     pinta
     shutter
     vlc
-    inkscape
 
     gnome.gnome-calculator
     evince # gnome pdf reader
@@ -56,9 +55,9 @@ in
 
     pkgs.jetbrains.idea-community-bin
 
+    # custom scripts
     idea
     weather
-
   ] ++ (if osConfig.ruben.host.work then [
     # work applications
     pkgs.teams-for-linux
@@ -69,6 +68,11 @@ in
     # private applications
     pkgs.cryptomator
     pkgs.openvpn
+    (pkgs.inkscape-with-extensions.override {
+      inkscapeExtensions = with pkgs.inkscape-extensions; [
+        silhouette
+      ];
+    })
 
     # games
     pkgs.prismlauncher

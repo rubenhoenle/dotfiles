@@ -9,6 +9,7 @@
       "wheel"
       "video"
       "dialout" # for arduino 
+      "lp"
     ];
     shell = pkgs.zsh;
   };
