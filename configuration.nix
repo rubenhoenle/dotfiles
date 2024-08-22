@@ -26,6 +26,7 @@
     vim
     curl
     zsh
+    git # needed for installation with disko!!
     agenix
   ];
 
