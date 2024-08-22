@@ -23,7 +23,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, agenix, treefmt-nix, nixos-hardware, ... }:
+  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, agenix, treefmt-nix, nixos-hardware, disko, ... }:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
@@ -65,7 +65,7 @@
               ] ++ host.nixosModules;
             };
           })
-          (import ./hosts.nix { inherit nixos-hardware; })
+          (import ./hosts.nix { inherit nixos-hardware disko; })
       );
     };
 }

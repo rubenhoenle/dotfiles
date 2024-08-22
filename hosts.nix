@@ -4,7 +4,6 @@
     nixosModules = [
       ./hardware/thinkpad-l580.nix
       {
-
         ruben.network.hostname = "nbell-nixos";
         console.keyMap = "de";
 
@@ -23,7 +22,7 @@
     nixosModules = [
       disko.nixosModules.disko
       (import ./disko-config.nix { disk = "/dev/nvme0n1"; })
-      ./hardware/thinkpad-t14s.nix
+      ./hardware/thinkpad-l590.nix
       {
         ruben.network.hostname = "deathstar";
 
