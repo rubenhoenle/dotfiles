@@ -1,14 +1,10 @@
 { config, lib, ... }:
-with lib;
-let
-  cfg = config.ruben.wireguard;
-in
 {
   options.ruben.wireguard = {
-    enable = mkEnableOption "wireguard VPN";
+    enable = lib.mkEnableOption "wireguard VPN";
   };
 
-  config = mkIf (cfg.enable)
+  config = lib.mkIf (config.ruben.wireguard.enable)
     {
       networking.firewall.allowedUDPPorts = [ 51820 ];
 

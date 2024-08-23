@@ -1,7 +1,5 @@
 { pkgs, config, lib, ... }:
-with lib;
 let
-  cfg = config.ruben.backup;
   excludeFile = pkgs.writeText "restic-excludes.txt"
     ''
       /home/ruben/.bash_history
@@ -35,10 +33,10 @@ let
 in
 {
   options.ruben.backup = {
-    enable = mkEnableOption "restic backup";
+    enable = lib.mkEnableOption "restic backup";
   };
 
-  config = mkIf (cfg.enable)
+  config = lib.mkIf (config.ruben.backup.enable)
     {
       /* restic backup service to backblaze b2 bucket */
       services.restic.backups.b2 = {
