@@ -16,7 +16,6 @@
     ./printing.nix
     ./secrets.nix
     ./sound.nix
-    ./unbound.nix
     ./users.nix
     ./wireguard.nix
   ];

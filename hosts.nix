@@ -39,7 +39,6 @@
       {
         ruben.network.hostname = "millenium-falcon";
         ruben.backup.enable = true;
-        #ruben.unbound.enable = true;
         ruben.wireguard.enable = true;
 
         console.keyMap = "us";
