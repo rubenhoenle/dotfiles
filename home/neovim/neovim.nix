@@ -10,6 +10,7 @@
       clang-tools
       gopls
       clang
+      go
     ] ++ (with pkgs.nodePackages; [
       bash-language-server
       vscode-langservers-extracted
@@ -72,13 +73,26 @@
     extraLuaConfig = lib.strings.concatStringsSep "\n"
       (lib.attrsets.mapAttrsToList
         (name: value:
-          "require('ruben.${lib.strings.removeSuffix ".lua" name}')"
+          if lib.strings.hasSuffix ".lua.nix" name then
+            "require('ruben.${lib.strings.removeSuffix ".lua.nix" name}')"
+          else if lib.strings.hasSuffix ".lua" name then
+            "require('ruben.${lib.strings.removeSuffix ".lua" name}')"
+          else ""
         )
         (builtins.readDir ./config)
       ++ [
       ]);
   };
-  xdg.configFile."nvim/lua/ruben" = {
-    source = ./config;
-  };
+  xdg.configFile = (lib.attrsets.mapAttrs'
+    (name: value:
+      if lib.strings.hasSuffix ".lua.nix" name then
+        (lib.attrsets.nameValuePair
+          ("nvim/lua/ruben/" +
+            (lib.strings.removeSuffix ".nix" name))
+          ({ text = import ./config/${name} { inherit pkgs lib; }; }))
+      else if lib.strings.hasSuffix ".lua" name then
+        (lib.attrsets.nameValuePair ("nvim/lua/ruben/" + name) ({ text = builtins.readFile ./config/${name}; }))
+      else { }
+    )
+    (builtins.readDir ./config));
 }
