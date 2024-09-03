@@ -89,9 +89,6 @@ in
 
   programs.home-manager.enable = true;
 
-  # make neovim the default editor
-  programs.neovim.defaultEditor = true;
-
   xdg.enable = true;
 
   imports = [
@@ -105,7 +102,6 @@ in
     ./shell.nix
     ./ssh.nix
     ./sway/default.nix
-    ./vim.nix
     ./vscode.nix
   ];
 

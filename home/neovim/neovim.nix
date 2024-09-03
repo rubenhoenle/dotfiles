@@ -1,7 +1,7 @@
 { pkgs, lib, ... }: {
   programs.neovim = {
     enable = true;
-    defaultEditor = true;
+    defaultEditor = true; # make neovim the default editor
     extraPackages = with pkgs;[
       sumneko-lua-language-server
       nil
