@@ -38,6 +38,12 @@
         port = 69;
         user = "ruben";
       };
+      schlago = {
+        host = "schlago";
+        hostname = "schlago.hoenle.xyz";
+        port = 23235;
+        user = "guest";
+      };
 
       # git remotes
       "github.com" = {
