@@ -30,6 +30,9 @@ let
       name = "pi-nixos";
       path = "${gitBasePath}";
       origin = "git@github.com:rubenhoenle/pi-nixos.git";
+      remotes = {
+        sezuisa = "git@github.com:sezuisa/pi-nixos.git";
+      };
     }
     {
       name = "bergkapellen-docs";
