@@ -38,6 +38,12 @@
         port = 69;
         user = "ruben";
       };
+      schlag-o-meterer = {
+        host = "schlag-o-meterer";
+        hostname = "127.0.0.1";
+        port = 23235;
+        user = "ruben";
+      };
       schlago = {
         host = "schlago";
         hostname = "schlago.hoenle.xyz";
