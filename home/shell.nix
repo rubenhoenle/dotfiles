@@ -26,9 +26,6 @@ let
     wgs = "systemctl status wg-quick-wg0";
 
     sp = "cd $(selecterer)";
-
-    # calendar
-    kal = "khal interactive";
   };
 in
 {

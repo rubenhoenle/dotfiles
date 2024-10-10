@@ -92,7 +92,6 @@ in
   xdg.enable = true;
 
   imports = [
-    ./calendar.nix
     ./clonerer.nix
     ./default-applications.nix
     ./firefox.nix

@@ -77,19 +77,6 @@ sudo fprintd-enroll ruben
 sudo fprintd-verify ruben
 ```
 
-## Calendar sync
-
-```bash
-# initial discover (after initial config apply or calendar config change)
-vdirsyncer discover calendar_nextcloud
-
-# sync the calendars
-vdirsyncer sync
-
-# view calendar
-khal
-```
-
 ## agenix
 
 [agenix](https://github.com/ryantm/agenix) is a tool for encrypted secrets in your NixOS config.

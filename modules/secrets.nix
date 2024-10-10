@@ -23,11 +23,6 @@
         owner = "ruben";
         group = "users";
       };
-      mailboxOrgPassword = {
-        file = ../secrets/mailbox-org-password.age;
-        owner = "ruben";
-        group = "users";
-      };
     };
   };
 }
