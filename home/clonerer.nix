@@ -62,7 +62,17 @@ let
     {
       name = "wiki";
       path = "${gitBasePath}";
-      origin = "git@github.com:rubenhoenle/wiki.git";
+      origin = "git@git.hoenle.xyz:wiki.git";
+    }
+    {
+      name = "Bewerbungsunterlagen";
+      path = "${gitBasePath}";
+      origin = "git@git.hoenle.xyz:bewerbungsunterlagen.git";
+    }
+    {
+      name = "Kirche-Homepage";
+      path = "${gitBasePath}";
+      origin = "git@git.hoenle.xyz:Kirche-Homepage.git";
     }
     {
       name = "NixOS";

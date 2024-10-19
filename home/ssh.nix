@@ -56,6 +56,14 @@
         hostname = "github.com";
         port = 22;
       };
+      "git.hoenle.xyz" = {
+        hostname = "192.168.178.5";
+        port = 69;
+        user = "git";
+        identityFile = [
+          "~/.ssh/id_ed25519_sk"
+        ];
+      };
       github-private = {
         hostname = "github.com";
         port = 22;
