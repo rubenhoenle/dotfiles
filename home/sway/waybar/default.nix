@@ -87,7 +87,7 @@
         };
         clock = {
           interval = 60;
-          format = "{:%A %d.%m.%Y %H:%M}";
+          format = "{:%A | %Y-%m-%d | %H:%M}";
           tooltip = true;
           tooltip-format = "{:%d.%m.%Y}\n<tt>{calendar}</tt>";
           calendar = {
