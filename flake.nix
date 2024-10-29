@@ -21,9 +21,15 @@
       url = "github:numtide/treefmt-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # repo with agenix secrets
+    secrets = {
+      url = "git+ssh://git@192.168.178.5:69/~git/dotfiles-secrets.git?ref=main&shallow=1";
+      flake = false;
+    };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, agenix, treefmt-nix, nixos-hardware, disko, ... }:
+  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, agenix, treefmt-nix, nixos-hardware, disko, ... }@inputs:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
@@ -48,13 +54,16 @@
             name = host.name;
             value = lib.nixosSystem {
               inherit system pkgs;
+              specialArgs = { inherit inputs; };
               modules = [
                 ./configuration.nix
+                ./modules/modules.nix
+                # agenix
                 agenix.nixosModules.default
                 {
                   _module.args.agenix = agenix.packages.${system}.default;
                 }
-                ./modules/modules.nix
+                # home manager
                 home-manager.nixosModules.home-manager
                 {
                   home-manager.useGlobalPkgs = true;
