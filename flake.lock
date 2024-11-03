@@ -162,26 +162,7 @@
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs",
         "nixpkgs-unstable": "nixpkgs-unstable",
-        "secrets": "secrets",
         "treefmt-nix": "treefmt-nix"
-      }
-    },
-    "secrets": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1730231507,
-        "narHash": "sha256-kss9atnYZBzeHKZzdMKcs8OILisQqF39lo1tY7mvbrY=",
-        "ref": "main",
-        "rev": "1506b917092acdfb0a28c6e01a4791456abdd445",
-        "shallow": true,
-        "type": "git",
-        "url": "ssh://git@192.168.178.5:69/~git/dotfiles-secrets.git"
-      },
-      "original": {
-        "ref": "main",
-        "shallow": true,
-        "type": "git",
-        "url": "ssh://git@192.168.178.5:69/~git/dotfiles-secrets.git"
       }
     },
     "systems": {
