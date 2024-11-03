@@ -2,7 +2,7 @@
 let
   /* The 'clonerer' is a tool which clones git repos to specified locations and sets up additional git remotes for them. */
 
-  gitBasePath = "/home/ruben/Developer/git";
+  gitBasePath = "/home/ruben/Developer";
   bromanceDotfilesPath = "${gitBasePath}/BROMANCE-DOTFILES";
   hackwerkReposPath = "${gitBasePath}/HACKWERK";
   configFile = pkgs.writeText "clonerer-config.json" (builtins.toJSON [
@@ -58,6 +58,11 @@ let
       name = "adventofcode";
       path = "${gitBasePath}";
       origin = "git@github.com:rubenhoenle/adventofcode.git";
+    }
+    {
+      name = "pixelknecht";
+      path = "${gitBasePath}";
+      origin = "git@github.com:rubenhoenle/pixelknecht.git";
     }
     {
       name = "wiki";
