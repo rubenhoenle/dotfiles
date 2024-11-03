@@ -21,7 +21,7 @@
     name = "deathstar";
     nixosModules = [
       disko.nixosModules.disko
-      (import ./disko-config.nix { disk = "/dev/nvme0n1"; })
+      #(import ./disko-config.nix { disk = "/dev/nvme0n1"; })
       ./hardware/thinkpad-l590.nix
       {
         ruben.network.hostname = "deathstar";
