@@ -11,6 +11,8 @@
       gopls
       clang
       go
+      tree-sitter
+      nodejs_22
     ] ++ (with pkgs.nodePackages; [
       bash-language-server
       vscode-langservers-extracted

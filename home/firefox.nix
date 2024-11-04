@@ -19,6 +19,14 @@
             installation_mode = "force_installed";
             install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
           };
+          "{446900e4-71c2-419f-a6a7-df9c091e268b}" = {
+            installation_mode = "force_installed";
+            install_url = "https://addons.mozilla.org/firefox/downloads/latest/bitwarden-password-manager/latest.xpi";
+          };
+          "vimium-ff@gavinsharp.github.com" = {
+            installation_mode = "force_installed";
+            install_url = "https://addons.mozilla.org/firefox/downloads/latest/vimium/latest.xpi";
+          };
         };
 
         FirefoxHome = {
@@ -32,9 +40,51 @@
           ExtensionRecommendations = false;
           SkipOnboarding = true;
         };
-        SearchEngines = {
-          Default = "ddg";
-        };
+      };
+    };
+
+    profiles.default = {
+      search.force = true; # This is required so the build won't fail each time
+      isDefault = true;
+      name = "default";
+      search.default = "DuckDuckGo";
+      settings = {
+        "browser.newtabpage.activity-stream.showSponsored" = false;
+        "browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
+        "browser.newtabpage.pinned" = [
+          {
+            title = "Protonmail";
+            url = "https://mail.proton.me/u/1/inbox";
+          }
+          {
+            title = "Space";
+            url = "https://home.sfz-aalen.space/";
+          }
+          {
+            title = "Space";
+            url = "https://home.sfz-aalen.space/";
+          }
+          {
+            title = "Space";
+            url = "https://home.sfz-aalen.space/";
+          }
+          {
+            title = "Space";
+            url = "https://home.sfz-aalen.space/";
+          }
+          {
+            title = "Github";
+            url = "https://github.com/";
+          }
+          {
+            title = "Nix search";
+            url = "https://search.nixos.org/";
+          }
+          {
+            title = "Space";
+            url = "https://home.sfz-aalen.space/";
+          }
+        ];
       };
     };
   };

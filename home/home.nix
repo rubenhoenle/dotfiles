@@ -43,17 +43,12 @@ in
     glow
 
     ripgrep
-    pkgs-unstable.protonmail-desktop
-    pkgs-unstable.container-structure-test
-    chromium
 
     podman-compose
 
     pkgs.spotify
     pkgs.signal-desktop
     pkgs.element-desktop
-
-    pkgs.jetbrains.idea-community-bin
 
     # custom scripts
     idea
@@ -64,6 +59,8 @@ in
     pkgs.postman
     pkgs.dbeaver-bin
     pkgs.thunderbird
+
+    pkgs.jetbrains.idea-community-bin
   ] else [
     # private applications
     pkgs.cryptomator
