@@ -17,7 +17,7 @@
           # Determines the IP address and subnet of the client's end of the tunnel interface.
           address = [ "192.168.178.201/24" ];
           listenPort = 51820; # to match firewall allowedUDPPorts (without this wg uses random port numbers)
-          dns = [ "192.168.178.5" ];
+          dns = [ "192.168.178.1" ];
 
           privateKeyFile = config.age.secrets.wireguardPrivateKey.path;
 

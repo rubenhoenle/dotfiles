@@ -1,4 +1,4 @@
-{ pkgs, pkgs-unstable, osConfig, ... }:
+{ pkgs, osConfig, ... }:
 let
   user = "ruben";
   idea = pkgs.writeShellScriptBin "idea" ''

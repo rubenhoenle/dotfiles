@@ -3,7 +3,6 @@ let
   shellAliases = {
     # shortcuts
     ll = "ls -lisa";
-    s = "screenfetch";
 
     # nixos update commands
     update = "sudo nixos-rebuild switch --flake .#";
@@ -41,9 +40,7 @@ in
 
     oh-my-zsh = {
       enable = true;
-      plugins = [
-        "git"
-      ];
+      plugins = [ "git" ];
       theme = "robbyrussell";
     };
   };

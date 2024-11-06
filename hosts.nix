@@ -27,6 +27,7 @@
         ruben.network.hostname = "deathstar";
 
         console.keyMap = "de";
+        ruben.wireguard.enable = true;
 
         system.stateVersion = "24.05";
       }

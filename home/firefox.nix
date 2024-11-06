@@ -53,35 +53,35 @@
         "browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
         "browser.newtabpage.pinned" = [
           {
-            title = "Protonmail";
+            label = "Mail";
             url = "https://mail.proton.me/u/1/inbox";
           }
           {
-            title = "Space";
+            label = "Drive";
+            url = "https://drive.proton.me/u/1/";
+          }
+          {
+            label = "Space";
             url = "https://home.sfz-aalen.space/";
           }
           {
-            title = "Space";
+            label = "Space";
             url = "https://home.sfz-aalen.space/";
           }
           {
-            title = "Space";
+            label = "Space";
             url = "https://home.sfz-aalen.space/";
           }
           {
-            title = "Space";
-            url = "https://home.sfz-aalen.space/";
-          }
-          {
-            title = "Github";
+            label = "Github";
             url = "https://github.com/";
           }
           {
-            title = "Nix search";
+            label = "Nix search";
             url = "https://search.nixos.org/";
           }
           {
-            title = "Space";
+            label = "Space";
             url = "https://home.sfz-aalen.space/";
           }
         ];
