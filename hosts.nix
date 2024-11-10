@@ -26,6 +26,8 @@
       {
         ruben.network.hostname = "deathstar";
 
+        ruben.backup.enable = true;
+
         console.keyMap = "de";
         ruben.wireguard.enable = true;
 

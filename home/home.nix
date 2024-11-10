@@ -13,6 +13,9 @@ let
   fs-unmount = pkgs.writeShellScriptBin "fs-unmount" ''
     fusermount -u /home/ruben/fileserver
   '';
+  tunnel = pkgs.writeShellScriptBin "tunnel" ''
+    ssh mandalore -L 4000:localhost:8085 -N
+  '';
 in
 {
   home.packages = with pkgs; [
@@ -77,6 +80,7 @@ in
     # fileserver
     fs-mount
     fs-unmount
+    tunnel
   ]);
 
   home.stateVersion = osConfig.system.stateVersion;
