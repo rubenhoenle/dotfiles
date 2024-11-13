@@ -22,33 +22,11 @@
           "~/.ssh/yubikey-5-usb-c/id_ed25519_sk.pub"
         ];
       };
-      scarif-nixos = {
-        host = "scarif";
-        hostname = "192.168.178.4";
-        port = 69;
-        user = "ruben";
-        identityFile = [
-          "~/.ssh/id_ed25519_sk"
-          "~/.ssh/yubikey-5-usb-c/id_ed25519_sk.pub"
-        ];
-      };
       niklas = {
         host = "niklas";
         hostname = "185.16.60.119";
         port = 69;
         user = "ruben";
-      };
-      schlag-o-meterer = {
-        host = "schlag-o-meterer";
-        hostname = "127.0.0.1";
-        port = 23235;
-        user = "ruben";
-      };
-      schlago = {
-        host = "schlago";
-        hostname = "schlago.hoenle.xyz";
-        port = 23235;
-        user = "guest";
       };
 
       # git remotes
