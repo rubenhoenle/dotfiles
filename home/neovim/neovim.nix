@@ -17,7 +17,6 @@
       bash-language-server
       vscode-langservers-extracted
       typescript-language-server
-      svelte-language-server
     ]);
     plugins = with pkgs.vimPlugins;
       let
