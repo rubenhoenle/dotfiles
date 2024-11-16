@@ -28,6 +28,12 @@
         port = 69;
         user = "ruben";
       };
+      bergkapellen-backup = {
+        host = "bergkapellen-backup";
+        hostname = "192.168.178.6";
+        port = 69;
+        user = "ruben";
+      };
 
       # git remotes
       "github.com" = {
