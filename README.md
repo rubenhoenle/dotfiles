@@ -92,7 +92,7 @@ AWS_SECRET_ACCESS_KEY=<MY_SECRET_ACCESS_KEY>
 
 ``` bash
 cd secrets
-agenix -e secret1.age
+agenix -i /home/ruben/.ssh/agenix/millenium-falcon/id_ed25519 -e secret1.age
 ```
 
 ### Adding a new SSH key to agenix
@@ -100,7 +100,7 @@ Add the new public key into `secrets.nix`.
 
 ``` bash
 # rekey the secrets
-agenix -r
+agenix -i /home/ruben/.ssh/agenix/millenium-falcon/id_ed25519 -r
 ```
 
 ## Troubleshooting

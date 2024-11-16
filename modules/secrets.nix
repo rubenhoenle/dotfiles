@@ -1,7 +1,10 @@
 { lib, config, ... }:
 {
   age = {
-    identityPaths = [ "/home/ruben/.ssh/id_ed25519" ];
+    identityPaths = [
+      "/home/ruben/.ssh/id_ed25519"
+      "/home/ruben/.ssh/agenix/millenium-falcon/id_ed25519"
+    ];
     secrets = {
       resticPassword = lib.mkIf (config.ruben.backup.enable) {
         file = ../secrets/restic-password.age;
