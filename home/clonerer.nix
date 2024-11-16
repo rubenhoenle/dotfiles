@@ -75,6 +75,11 @@ let
       origin = "git@git.hoenle.xyz:bewerbungsunterlagen.git";
     }
     {
+      name = "Briefvorlage";
+      path = "${gitBasePath}";
+      origin = "git@git.hoenle.xyz:briefvorlage.git";
+    }
+    {
       name = "Kirche-Homepage";
       path = "${gitBasePath}";
       origin = "git@git.hoenle.xyz:Kirche-Homepage.git";
