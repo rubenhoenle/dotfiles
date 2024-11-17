@@ -42,9 +42,9 @@
       {
         ruben.network.hostname = "millenium-falcon";
         #ruben.backup.enable = true;
-        #ruben.wireguard.enable = true;
+        ruben.wireguard.enable = true;
 
-        console.keyMap = "de";
+        console.keyMap = "us";
 
         swapDevices = [{
           device = "/var/lib/swapfile";

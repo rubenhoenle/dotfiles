@@ -5,7 +5,7 @@
       mandalore-nixos = {
         host = "mandalore";
         hostname = "192.168.178.5";
-        port = 69;
+        port = 41524;
         user = "ruben";
         identityFile = [
           "~/.ssh/id_ed25519_sk"
@@ -15,7 +15,7 @@
       mandalore-nixos-initrd = {
         host = "mandalore-initrd";
         hostname = "192.168.178.5";
-        port = 2222;
+        port = 45274;
         user = "root";
         identityFile = [
           "~/.ssh/id_ed25519_sk"
