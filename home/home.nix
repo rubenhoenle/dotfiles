@@ -64,6 +64,7 @@ in
     pkgs.thunderbird
 
     pkgs.jetbrains.idea-community-bin
+    pkgs.eclipses.eclipse-java
   ] else [
     # private applications
     pkgs.cryptomator
