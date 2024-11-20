@@ -60,6 +60,7 @@
                   home-manager.useGlobalPkgs = true;
                   home-manager.useUserPackages = true;
                   home-manager.users.ruben = import ./home/home.nix;
+                  home-manager.backupFileExtension = "homemanager-backup";
                   home-manager.extraSpecialArgs = { inherit pkgs-unstable; };
                 }
               ] ++ host.nixosModules;
