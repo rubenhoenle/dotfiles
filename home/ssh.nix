@@ -42,7 +42,7 @@
       };
       "git.hoenle.xyz" = {
         hostname = "192.168.178.5";
-        port = 69;
+        port = 41524;
         user = "git";
         identityFile = [
           "~/.ssh/id_ed25519_sk"
