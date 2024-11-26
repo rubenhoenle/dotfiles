@@ -12,7 +12,7 @@
       {
         name = "Space-2D-Printer";
         model = "HP/hp-color_laserjet_mfp_m480-ps.ppd.gz";
-        deviceUri = "socket://2d.sfz-aalen.space";
+        deviceUri = "socket://10.11.42.10";
       }
       {
         # this printer from brother didn't wanted to work with brother drivers, so I just used the 
