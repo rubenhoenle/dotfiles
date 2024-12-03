@@ -33,6 +33,7 @@ in
     tldr
     zip
     unzip
+    tree
 
     curl
     dnsutils
