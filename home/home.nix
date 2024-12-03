@@ -26,9 +26,9 @@ in
     shutter
     vlc
 
-    gnome.gnome-calculator
+    gnome-calculator
     evince # gnome pdf reader
-    gnome.eog # gnome image viewer
+    eog # gnome image viewer
 
     tldr
     zip
@@ -109,11 +109,11 @@ in
   gtk = {
     enable = true;
     theme = {
-      package = pkgs.gnome.gnome-themes-extra;
+      package = pkgs.gnome-themes-extra;
       name = "Adwaita-dark";
     };
     iconTheme = {
-      package = pkgs.gnome.adwaita-icon-theme;
+      package = pkgs.adwaita-icon-theme;
       name = "Adwaita";
     };
     /* Bookmarks in the sidebar of the GTK file browser */
