@@ -27,6 +27,8 @@ in
     vlc
 
     gnome-calculator
+    nwg-displays
+
     evince # gnome pdf reader
     eog # gnome image viewer
 
