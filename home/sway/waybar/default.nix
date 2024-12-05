@@ -21,7 +21,6 @@
           "bluetooth"
           # media
           "wireplumber"
-          "pulseaudio"
           "backlight"
           # informational
           "cpu"
@@ -147,23 +146,6 @@
           scroll-step = 0; # disables scroll
           format-muted = "VOL: MUTE";
           on-click = "${pkgs.pulseaudio}/bin/pactl set-sink-mute @DEFAULT_SINK@ toggle";
-        };
-        pulseaudio = {
-          scroll-step = 5;
-          format = "{icon} {volume}%{format_source}";
-          format-muted = "󰖁 {format_source}";
-          format-source = "";
-          format-source-muted = " 󰍭";
-          format-icons = {
-            headphone = "󰋋";
-            headset = "󰋎";
-            default = [ "󰕿" "󰖀" "󰕾" ];
-          };
-          tooltip-format = "{icon}  {volume}% {format_source}";
-          on-click = "${pkgs.swayfx}/bin/swaymsg exec \"${pkgs.alacritty}/bin/alacritty --class floating_shell -o window.dimensions.columns=82 -o window.dimensions.lines=25 -e ${pkgs.pulsemixer}/bin/pulsemixer\"";
-          on-click-middle = "${pkgs.swayfx}/bin/swaymsg exec exec ${pkgs.pulseaudio}/bin/pactl set-sink-mute @DEFAULT_SINK@ toggle";
-          on-scroll-up = "${pkgs.swayfx}/bin/swaymsg exec ${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ +5%";
-          on-scroll-down = "${pkgs.swayfx}/bin/swaymsg exec ${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ -5%";
         };
         bluetooth = {
           format = "BLUE: on";
