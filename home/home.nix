@@ -1,4 +1,4 @@
-{ pkgs, osConfig, ... }:
+{ pkgs, pkgs-unstable, osConfig, ... }:
 let
   user = "ruben";
   idea = pkgs.writeShellScriptBin "idea" ''
@@ -70,7 +70,7 @@ in
     pkgs.eclipses.eclipse-java
   ] else [
     # private applications
-    pkgs.cryptomator
+    pkgs-unstable.cryptomator
     pkgs.openvpn
     (pkgs.inkscape-with-extensions.override {
       inkscapeExtensions = with pkgs.inkscape-extensions; [
