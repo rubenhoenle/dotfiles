@@ -24,8 +24,8 @@
           "backlight"
           # informational
           "cpu"
-          "temperature"
-          "memory"
+          #"temperature"
+          #"memory"
           "battery"
         ];
 
@@ -105,15 +105,15 @@
           format = "CPU: {usage}%";
           tooltip = false;
         };
-        temperature = {
-          interval = 5;
-          format = "{temperatureC}°C";
-          tooltip = false;
-        };
-        memory = {
-          format = "MEM: {percentage}%";
-          tooltip = false;
-        };
+        #temperature = {
+        #  interval = 5;
+        #  format = "{temperatureC}°C";
+        #  tooltip = false;
+        #};
+        #memory = {
+        #  format = "MEM: {percentage}%";
+        #  tooltip = false;
+        #};
         network = {
           format = "NET: none";
           format-wifi = "NET: {essid}";
@@ -124,7 +124,6 @@
           tooltip-format-wifi = "{ipaddr}";
           tooltip-format-disconnected = "disconnected";
           tooltip-format-disabled = "disabled";
-          on-click = "${pkgs.alacritty}/bin/alacritty --class floating_shell -o window.dimensions.columns=82 -o window.dimensions.lines=25 -e ${pkgs.networkmanager}/bin/nmtui connect";
         };
         "sway/mode" = {
           format = "<span style=\"italic\">{}</span>";
@@ -134,7 +133,6 @@
           format = " {}";
           min-length = 5;
           tooltip = false;
-          on-click = "${pkgs.swayfx}/bin/swaymsg input $(${pkgs.swayfx}/bin/swaymsg -t get_inputs --raw | ${pkgs.jq}/bin/jq '[.[] | select(.type == \"keyboard\")][0] | .identifier') xkb_switch_layout next";
         };
         backlight = {
           tooltip = false;
@@ -151,7 +149,6 @@
           format = "BLUE: on";
           format-off = "BLUE: off";
           format-connected = "BLUE: {num_connections}";
-          on-click = "${pkgs.alacritty}/bin/alacritty --class floating_shell -o window.dimensions.columns=164 -o window.dimensions.lines=25 -e ${pkgs.bluetuith}/bin/bluetuith";
         };
       };
     };

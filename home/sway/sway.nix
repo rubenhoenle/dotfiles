@@ -8,6 +8,7 @@
       };
       cfg = config.wayland.windowManager.sway.config;
       modeScreenshot = "󰄄  (r) region (s) screen";
+      modeOptions = "󰄄 (s) sound (d) displays (n) network (b) bluetooth";
       colors = {
         text = "#cccccc";
         indicator = "#cccccc";
@@ -94,7 +95,7 @@
           };
         };
         keybindings = {
-          "${cfg.modifier}+o" = "exec ${pkgs.swayfx}/bin/swaymsg input $(${pkgs.swayfx}/bin/swaymsg -t get_inputs --raw | ${pkgs.jq}/bin/jq '[.[] | select(.type == \"keyboard\")][0] | .identifier') xkb_switch_layout next";
+          "${cfg.modifier}+Shift+o" = "exec ${pkgs.swayfx}/bin/swaymsg input $(${pkgs.swayfx}/bin/swaymsg -t get_inputs --raw | ${pkgs.jq}/bin/jq '[.[] | select(.type == \"keyboard\")][0] | .identifier') xkb_switch_layout next";
 
           # Basics
           "${cfg.modifier}+t" = "exec ${cfg.terminal}";
@@ -161,6 +162,8 @@
           "Print" = "mode \"${modeScreenshot}\"";
           "${cfg.modifier}+Shift+s" = "mode \"${modeScreenshot}\"";
 
+          "${cfg.modifier}+o" = "mode \"${modeOptions}\"";
+
           # Multimedia Keys
           "XF86AudioMute" = "exec ${pkgs.pulseaudio}/bin/pactl set-sink-mute @DEFAULT_SINK@ toggle";
           "XF86AudioMicMute" = "exec ${pkgs.pulseaudio}/bin/pactl set-source-mute @DEFAULT_SOURCE@ toggle";
@@ -178,6 +181,15 @@
           "${modeScreenshot}" = {
             "r" = "exec ${pkgs.sway}/bin/swaymsg mode default && ${pkgs.grim}/bin/grim -g \"$(${pkgs.slurp}/bin/slurp)\" - | ${pkgs.wl-clipboard}/bin/wl-copy";
             "s" = "exec ${pkgs.sway}/bin/swaymsg mode default && ${pkgs.grim}/bin/grim -o \"$(${pkgs.sway}/bin/swaymsg -t get_outputs | ${pkgs.jq}/bin/jq -r '.[] | select(.focused)' | ${pkgs.jq}/bin/jq -r '.name')\" - | ${pkgs.wl-clipboard}/bin/wl-copy";
+            Escape = "mode default";
+            Return = "mode default";
+          };
+          "${modeOptions}" = {
+            "d" = "exec ${pkgs.sway}/bin/swaymsg mode default && ${pkgs.nwg-displays}/bin/nwg-displays";
+            "b" = "exec ${pkgs.sway}/bin/swaymsg mode default && ${pkgs.alacritty}/bin/alacritty --class floating_shell -o window.dimensions.columns=164 -o window.dimensions.lines=25 -e ${pkgs.bluetuith}/bin/bluetuith";
+            "s" = "exec ${pkgs.sway}/bin/swaymsg mode default && ${pkgs.swayfx}/bin/swaymsg exec \"${pkgs.alacritty}/bin/alacritty --class floating_shell -o window.dimensions.columns=82 -o window.dimensions.lines=25 -e ${pkgs.pulsemixer}/bin/pulsemixer\"";
+            "n" = "exec ${pkgs.sway}/bin/swaymsg mode default && ${pkgs.alacritty}/bin/alacritty --class floating_shell -o window.dimensions.columns=82 -o window.dimensions.lines=25 -e ${pkgs.networkmanager}/bin/nmtui connect";
+            "${cfg.modifier}+o" = "mode default";
             Escape = "mode default";
             Return = "mode default";
           };
