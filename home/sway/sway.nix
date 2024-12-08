@@ -8,7 +8,8 @@
       };
       cfg = config.wayland.windowManager.sway.config;
       modeScreenshot = "󰄄  (r) region (s) screen";
-      modeOptions = "󰄄 (s) sound (d) displays (n) network (b) bluetooth";
+      modeOptions = "(s) sound (d) displays (n) network (b) bluetooth (p) power";
+      modeShutdown = "(h) hibernate (l) lock (e) logout (r) reboot (u) suspend (s) shutdown";
       colors = {
         text = "#cccccc";
         indicator = "#cccccc";
@@ -156,16 +157,19 @@
           "${cfg.modifier}+f" = "fullscreen toggle";
 
           # screen lock
-          "${cfg.modifier}+Shift+Space" = "exec ${pkgs.swaylock}/bin/swaylock && ${pkgs.sway}/bin/swaymsg mode default";
+          "${cfg.modifier}+p" = "exec ${pkgs.swaylock}/bin/swaylock";
 
           # Screenshot mode
           "Print" = "mode \"${modeScreenshot}\"";
           "${cfg.modifier}+Shift+s" = "mode \"${modeScreenshot}\"";
 
+          # Options mode
           "${cfg.modifier}+o" = "mode \"${modeOptions}\"";
+
 
           # Multimedia Keys
           "XF86AudioMute" = "exec ${pkgs.pulseaudio}/bin/pactl set-sink-mute @DEFAULT_SINK@ toggle";
+          "${cfg.modifier}+m" = "exec ${pkgs.pulseaudio}/bin/pactl set-sink-mute @DEFAULT_SINK@ toggle";
           "XF86AudioMicMute" = "exec ${pkgs.pulseaudio}/bin/pactl set-source-mute @DEFAULT_SOURCE@ toggle";
           "--locked XF86MonBrightnessDown" = "exec ${pkgs.brightnessctl}/bin/brightnessctl set 5%-";
           "--locked XF86MonBrightnessUp" = "exec ${pkgs.brightnessctl}/bin/brightnessctl set +5%";
@@ -189,6 +193,18 @@
             "b" = "exec ${pkgs.sway}/bin/swaymsg mode default && ${pkgs.alacritty}/bin/alacritty --class floating_shell -o window.dimensions.columns=164 -o window.dimensions.lines=25 -e ${pkgs.bluetuith}/bin/bluetuith";
             "s" = "exec ${pkgs.sway}/bin/swaymsg mode default && ${pkgs.swayfx}/bin/swaymsg exec \"${pkgs.alacritty}/bin/alacritty --class floating_shell -o window.dimensions.columns=82 -o window.dimensions.lines=25 -e ${pkgs.pulsemixer}/bin/pulsemixer\"";
             "n" = "exec ${pkgs.sway}/bin/swaymsg mode default && ${pkgs.alacritty}/bin/alacritty --class floating_shell -o window.dimensions.columns=82 -o window.dimensions.lines=25 -e ${pkgs.networkmanager}/bin/nmtui connect";
+            "p" = "mode \"${modeShutdown}\"";
+            "${cfg.modifier}+o" = "mode default";
+            Escape = "mode default";
+            Return = "mode default";
+          };
+          "${modeShutdown}" = {
+            "h" = "exec ${pkgs.systemd}/bin/systemctl hibernate && ${pkgs.swayfx}/bin/swaymsg mode default";
+            "l" = "exec ${pkgs.swaylock}/bin/swaylock && ${pkgs.swayfx}/bin/swaymsg mode default";
+            "e" = "exec ${pkgs.systemd}/bin/loginctl terminate-user $USER && ${pkgs.swayfx}/bin/swaymsg mode default";
+            "r" = "exec ${pkgs.systemd}/bin/systemctl reboot && ${pkgs.swayfx}/bin/swaymsg mode default";
+            "u" = "exec ${pkgs.systemd}/bin/systemctl suspend && ${pkgs.swayfx}/bin/swaymsg mode default";
+            "s" = "exec ${pkgs.systemd}/bin/systemctl poweroff && ${pkgs.swayfx}/bin/swaymsg mode default";
             "${cfg.modifier}+o" = "mode default";
             Escape = "mode default";
             Return = "mode default";

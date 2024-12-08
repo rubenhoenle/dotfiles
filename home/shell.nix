@@ -13,11 +13,10 @@ let
 
     # other stuff
     xclip = "xclip -selection c";
-    hibernate = "systemctl hibernate";
     open = "xdg-open";
     gloww = "glow README.md";
 
-    logout = "exec ${pkgs.systemd}/bin/loginctl terminate-user $USER && ${pkgs.sway}/bin/swaymsg mode default";
+    logout = "exec ${pkgs.systemd}/bin/loginctl terminate-user $USER";
 
     # wireguard
     wgu = "systemctl start wg-quick-wg0";
