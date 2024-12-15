@@ -14,12 +14,12 @@
     '';
   };
 
-  programs.zsh.prezto = {
+  /*programs.zsh.prezto = {
     enable = false;
     tmux = {
       autoStartLocal = false;
       autoStartRemote = false;
       defaultSessionName = "auto";
     };
-  };
+  };*/
 }
