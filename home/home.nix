@@ -106,6 +106,7 @@ in
     ./shell.nix
     ./ssh.nix
     ./sway/default.nix
+    ./tmux.nix
     ./vscode.nix
   ];
 
