@@ -157,6 +157,11 @@ let
       origin = "git@gitlab.com:sfz.aalen/infra/miraakunix.git";
     }
     {
+      name = "logos";
+      path = "${hackwerkReposPath}";
+      origin = "git@gitlab.com:sfz.aalen/hackwerk/hackwerklogo.git";
+    }
+    {
       name = "stickers";
       path = "${hackwerkReposPath}";
       origin = "git@gitlab.com:sfz.aalen/hackwerk/Stickers.git";
