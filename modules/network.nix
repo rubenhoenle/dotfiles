@@ -17,26 +17,26 @@ in
     };
 
     networking.networkmanager.ensureProfiles.profiles = {
-      "Hack-mas" = {
+      "38C3" = {
         connection = {
-          id = "Hack-mas";
+          id = "38C3";
           type = "wifi";
           autoconnect = true;
           interface-name = "wlp3s0";
         };
         wifi = {
           mode = "infrastructure";
-          ssid = "Hack ma's";
+          ssid = "38C3";
         };
         wifi-security = {
           key-mgmt = "wpa-eap";
         };
         "802-1x" = {
           eap = "ttls;";
-          identity = "hackmas";
-          password = "hackmas";
+          identity = "38C3";
+          password = "38C3";
           phase2-auth = "pap";
-          domain-suffix-match = "radius.noc.hack-mas.at";
+          domain-suffix-match = "radius.c3noc.net";
           ca-cert = "${builtins.fetchurl {
             url = "https://letsencrypt.org/certs/isrgrootx1.pem";
             sha256 = "sha256:1la36n2f31j9s03v847ig6ny9lr875q3g7smnq33dcsmf2i5gd92";
