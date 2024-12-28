@@ -68,7 +68,7 @@
   	capabilities = capabilities,
   	on_attach = on_attach,
   })
-  lspc.tsserver.setup({
+  lspc.ts_ls.setup({
   	capabilities = capabilities,
   	on_attach = on_attach,
   })
