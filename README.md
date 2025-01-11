@@ -34,6 +34,12 @@ clonerer
 8. `cd /home/ruben`
 9. `git clone git@github.com:rubenhoenle/dotfiles.git`
 
+## Screen mirroring
+
+`wl-mirror --fullscreen DP-1`
+
+`wl-mirror --fullscreen eDP-1`
+
 ## Backups
 I use restic for my backups. The backups are stored on Backblaze B2 via the S3 API and on a local harddrive.
 

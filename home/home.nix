@@ -56,6 +56,8 @@ in
     pkgs.signal-desktop
     pkgs.element-desktop
 
+    wl-mirror # screen mirroring
+
     # custom scripts
     idea
     weather
