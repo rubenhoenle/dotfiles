@@ -110,6 +110,8 @@ in
     ./sway/default.nix
     ./tmux.nix
     ./vscode.nix
+
+    ./eduroam.nix
   ];
 
   gtk = {
