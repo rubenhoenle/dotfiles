@@ -21,13 +21,31 @@
         for_window [app_id="floating_shell"] floating enable, border pixel 1, sticky enable
         for_window [title="dmenu"] floating enable, border pixel 1, sticky enable
         workspace 1
-        exec firefox
-        exec alacritty
       '';
+      #exec firefox
+      #exec alacritty
       config = {
         modifier = "Mod4";
         terminal = "alacritty";
         menu = "${pkgs.wofi}/bin/wofi --show=drun";
+        startup = [
+          { command = "firefox"; }
+          { command = "${pkgs.element-desktop}/bin/element-desktop"; }
+          { command = "spotify"; }
+          { command = "${pkgs.signal-desktop}/bin/signal-desktop"; }
+        ];
+        assigns = {
+          "1" = [
+            { app_id = "firefox"; }
+          ];
+          "8" = [
+            { class = "^Spotify$"; }
+          ];
+          "9" = [
+            { class = "^Element$"; }
+            { class = "^Signal$"; }
+          ];
+        };
         output = {
           "*" = {
             bg = "${wallpaper} fill";

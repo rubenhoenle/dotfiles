@@ -10,7 +10,7 @@
     ./fonts.nix
     ./gtk.nix
     ./locales.nix
-    #./mounts.nix
+    ./mounts.nix
     ./network.nix
     ./nix.nix
     ./podman.nix
