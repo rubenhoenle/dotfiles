@@ -1,23 +1,5 @@
 { nixos-hardware, disko }: [
   {
-    name = "nbell-nixos";
-    nixosModules = [
-      ./hardware/thinkpad-l580.nix
-      {
-        ruben.network.hostname = "nbell-nixos";
-        console.keyMap = "de";
-
-        ruben.git.name = "ruben.hoenle";
-        ruben.git.mail = "ruben.hoenle@fntsoftware.com";
-        ruben.host.work = true;
-
-        boot.initrd.luks.devices."luks-b98db7bc-7d65-49d9-b771-1eb36ee43027".device = "/dev/disk/by-uuid/b98db7bc-7d65-49d9-b771-1eb36ee43027";
-
-        system.stateVersion = "23.11";
-      }
-    ];
-  }
-  {
     name = "deathstar";
     nixosModules = [
       disko.nixosModules.disko
