@@ -2,6 +2,16 @@
   programs.ssh = {
     enable = true;
     matchBlocks = {
+      vps = {
+        host = "vps";
+        hostname = "vps.hoenle.xyz";
+        port = 41524;
+        user = "ruben";
+        identityFile = [
+          "~/.ssh/id_ed25519_sk"
+          "~/.ssh/yubikey-5-usb-c/id_ed25519_sk.pub"
+        ];
+      };
       mandalore-nixos = {
         host = "mandalore";
         hostname = "192.168.178.5";
