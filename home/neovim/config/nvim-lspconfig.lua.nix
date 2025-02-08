@@ -85,4 +85,9 @@
   	on_attach = on_attach,
       cmd = use_exec_or_fallback("gopls", "${pkgs.gopls}/bin/gopls"),
   })
+  lspc.terraformls.setup({
+  	capabilities = capabilities,
+  	on_attach = on_attach,
+      cmd = {'${pkgs.terraform-ls}/bin/terraform-ls', 'serve'},
+  })
 ''

@@ -9,6 +9,7 @@
       kotlin-language-server
       clang-tools
       gopls
+      terraform-ls
       clang
       go
       tree-sitter
