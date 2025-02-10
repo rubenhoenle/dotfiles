@@ -132,10 +132,8 @@ in
       [
         "${prefix}/Developer Developer"
         "${prefix}/Documents/paperless_open paperless_open"
-        "${prefix}/nobackup nobackup"
         "${prefix}/Downloads"
         "${prefix}/Documents"
-        "${prefix}/Pictures"
       ];
     gtk4.extraConfig = {
       gtk-application-prefer-dark-theme = 1;
