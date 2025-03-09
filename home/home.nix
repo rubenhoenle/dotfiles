@@ -52,9 +52,13 @@ in
 
     podman-compose
 
+    keepassxc
+
     pkgs.spotify
     pkgs.signal-desktop
     pkgs.element-desktop
+    
+    pkgs.android-studio
 
     wl-mirror # screen mirroring
 
