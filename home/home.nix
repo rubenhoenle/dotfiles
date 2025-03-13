@@ -57,7 +57,7 @@ in
     pkgs.spotify
     pkgs.signal-desktop
     pkgs.element-desktop
-    
+
     pkgs.android-studio
 
     wl-mirror # screen mirroring
