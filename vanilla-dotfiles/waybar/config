@@ -1,0 +1,112 @@
+[
+  {
+    "backlight": {
+      "format": "BRI: {percent}%",
+      "tooltip": false
+    },
+    "battery": {
+      "format": "BAT: {capacity}%",
+      "format-charging": "BAT: {capacity}%",
+      "interval": 30,
+      "states": {
+        "critical": 15,
+        "warning": 30
+      },
+      "tooltip": true
+    },
+    "bluetooth": {
+      "format": "BLUE: on",
+      "format-connected": "BLUE: {num_connections}",
+      "format-off": "BLUE: off"
+    },
+    "clock": {
+      "calendar": {
+        "format": {
+          "days": "<span color='#ecc6d9'><b>{}</b></span>",
+          "months": "<span color='#ffead3'><b>{}</b></span>",
+          "today": "<span color='#ff6699'><b><u>{}</u></b></span>",
+          "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+          "weeks": "<span color='#99ffdd'><b>W{}</b></span>"
+        },
+        "weeks-pos": "right"
+      },
+      "format": "{:%A | %Y-%m-%d | %H:%M}",
+      "interval": 60,
+      "tooltip": true,
+      "tooltip-format": "{:%d.%m.%Y}\n<tt>{calendar}</tt>"
+    },
+    "cpu": {
+      "format": "CPU: {usage}%",
+      "tooltip": false
+    },
+    "custom/nixstore": {
+      "exec": "du -sh /nix/store | sed 's/\\([0-9]\\+[A-Z]\\+\\).*/\\1/'",
+      "format": "  {}",
+      "interval": 300,
+      "tooltip": false
+    },
+    "custom/spacestatus": {
+      "exec": "/nix/store/y3c2psnfn3nhix4ikgdh99pb41nc3mwz-spacestatus-waybar",
+      "format": "SPACE: {icon}",
+      "format-icons": {
+        "green": "<span color='#008000'>●</span>",
+        "red": "<span color='#c30010'>●</span>"
+      },
+      "interval": 10,
+      "return-type": "json",
+      "tooltip": false
+    },
+    "custom/vpn": {
+      "exec": "/nix/store/987ki6vzf0yr0sxh8h66kngp0anwl1sd-vpn-waybar",
+      "format": "VPN: {}",
+      "interval": 10,
+      "tooltip": false
+    },
+    "layer": "top",
+    "modules-center": [
+      "sway/mode"
+    ],
+    "modules-left": [
+      "clock",
+      "custom/nixstore",
+      "sway/workspaces"
+    ],
+    "modules-right": [
+      "sway/language",
+      "network",
+      "custom/vpn",
+      "custom/spacestatus",
+      "bluetooth",
+      "wireplumber",
+      "backlight",
+      "cpu",
+      "battery"
+    ],
+    "network": {
+      "format": "NET: none",
+      "format-disabled": "NET: off",
+      "format-ethernet": "NET: wired",
+      "format-wifi": "NET: {essid}",
+      "tooltip-format": "{ipaddr}",
+      "tooltip-format-disabled": "disabled",
+      "tooltip-format-disconnected": "disconnected",
+      "tooltip-format-ethernet": "{ipaddr}",
+      "tooltip-format-wifi": "{ipaddr}"
+    },
+    "sway/language": {
+      "format": " {}",
+      "min-length": 5,
+      "tooltip": false
+    },
+    "sway/mode": {
+      "format": "<span style=\"italic\">{}</span>",
+      "tooltip": false
+    },
+    "wireplumber": {
+      "format": "VOL: {volume}%",
+      "format-muted": "VOL: MUTE",
+      "scroll-step": 0,
+      "tooltip": false
+    }
+  }
+]

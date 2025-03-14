@@ -1,0 +1,12 @@
+[init]
+	defaultBranch = "main"
+
+[pull]
+	rebase = true
+
+[push]
+	autoSetupRemote = true
+
+[user]
+	email = "git@hoenle.xyz"
+	name = "Ruben Hoenle"

@@ -1,0 +1,7 @@
+[font]
+size = 11
+[font.normal]
+family = "JetBrainsMono Nerd Font"
+
+[window]
+opacity = 0.85
