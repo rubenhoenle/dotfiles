@@ -30,13 +30,17 @@
         menu = "${pkgs.wofi}/bin/wofi --show=drun";
         startup = [
           { command = "firefox"; }
-          { command = "${pkgs.element-desktop}/bin/element-desktop"; }
+          { command = "keepassxc"; }
           { command = "spotify"; }
+          { command = "${pkgs.element-desktop}/bin/element-desktop"; }
           { command = "${pkgs.signal-desktop}/bin/signal-desktop"; }
         ];
         assigns = {
           "1" = [
             { app_id = "firefox"; }
+          ];
+          "7" = [
+            { app_id = "keepassxc"; }
           ];
           "8" = [
             { class = "^Spotify$"; }
