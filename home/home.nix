@@ -36,6 +36,7 @@ in
     zip
     unzip
     tree
+    fzf
 
     curl
     dnsutils
