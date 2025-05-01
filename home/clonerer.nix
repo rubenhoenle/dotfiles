@@ -9,17 +9,7 @@ let
     {
       name = "homepage";
       path = "${gitBasePath}";
-      origin = "git@github.com:rubenhoenle/rubenhoenle.github.io.git";
-    }
-    {
-      name = "Matrix-MQTT-Bridge";
-      path = "${gitBasePath}";
-      origin = "git@github.com:rubenhoenle/Matrix-MQTT-Bridge.git";
-    }
-    {
-      name = "texerer";
-      path = "${gitBasePath}";
-      origin = "git@github.com:rubenhoenle/texerer.git";
+      origin = "git@git.hoenle.xyz:homepage.git";
     }
     {
       name = "NixOServer";
@@ -40,19 +30,9 @@ let
       origin = "git@github.com:rubenhoenle/bergkapellen-docs.git";
     }
     {
-      name = "docker-composer";
-      path = "${gitBasePath}";
-      origin = "git@github.com:rubenhoenle/docker-composer.git";
-    }
-    {
       name = "gigacube";
       path = "${gitBasePath}";
       origin = "git@github.com:rubenhoenle/gigacube.git";
-    }
-    {
-      name = "lovebox";
-      path = "${gitBasePath}";
-      origin = "git@github.com:rubenhoenle/lovebox.git";
     }
     {
       name = "adventofcode";
@@ -63,6 +43,11 @@ let
       name = "pixelknecht";
       path = "${gitBasePath}";
       origin = "git@github.com:rubenhoenle/pixelknecht.git";
+    }
+    {
+      name = "potion-mod";
+      path = "${gitBasePath}";
+      origin = "git@github.com:rubenhoenle/potion-mod.git";
     }
     {
       name = "wiki";
