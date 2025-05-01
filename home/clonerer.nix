@@ -122,16 +122,6 @@ let
       };
     }
     {
-      /* sezuisa dotfiles */
-      name = "sezuisa";
-      path = "${bromanceDotfilesPath}";
-      origin = "git@github.com:rubenhoenle/sezuisa-dotfiles.git";
-      remotes = {
-        upstream = "git@github.com:sezuisa/dotfiles.git";
-        ruben = "git@github.com:rubenhoenle/dotfiles.git";
-      };
-    }
-    {
       name = "space-notebooks";
       path = "${hackwerkReposPath}";
       origin = "git@gitlab.com:sfz.aalen/infra/space-notebooks.git";
