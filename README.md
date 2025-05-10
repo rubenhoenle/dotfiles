@@ -25,7 +25,7 @@ clonerer
 ## Installation
 
 1. Boot into a NixOS 24.05 minimal ISO
-2. If you want to use WiFi in the minimal ISO create config: `wpa_passphrase <SSID> <PW> | sudo tee /etc/wpa_supplicant.conf` activate it: `sudo wpa_supplicant -B -c /etc/wpa_supplicant.conf -i wlp5s0` 
+2. If you want to use WiFi in the minimal ISO create config: `wpa_passphrase <SSID> <PW> | sudo tee /etc/wpa_supplicant.conf` activate it: `sudo wpa_supplicant -B -c /etc/wpa_supplicant.conf -i wlp5s0`
 3. Run `sudo nix --experimental-features "nix-command flakes" run github:nix-community/disko -- --mode disko --flake github:rubenhoenle/dotfiles/main#deathstar --arg disk '"/dev/nvme0n1"'`
 4. Run `sudo nixos-install --flake github:rubenhoenle/dotfiles#deathstar`
 5. Reboot
@@ -41,13 +41,14 @@ clonerer
 `wl-mirror --fullscreen eDP-1`
 
 ## Backups
+
 I use restic for my backups. The backups are stored on Backblaze B2 via the S3 API and on a local harddrive.
 
 ### Backblaze B2 backup
 
 The backup to Backblaze B2 is automated and runs every hour.
 
-``` bash
+```bash
 # showing the status of the backblaze b2 backup
 systemctl status restic-backups-b2.service
 
@@ -59,7 +60,7 @@ restic-b2 snapshots
 
 [restic documentation for restoring](https://restic.readthedocs.io/en/latest/050_restore.html)
 
-``` bash
+```bash
 # starting the HDD backup
 systemctl start restic-backups-hdd
 
@@ -89,22 +90,23 @@ sudo fprintd-verify ruben
 
 ### Restic environment variable file
 
-``` bash
+```bash
 AWS_ACCESS_KEY_ID=<MY_ACCESS_KEY>
 AWS_SECRET_ACCESS_KEY=<MY_SECRET_ACCESS_KEY>
 ```
 
 ### Adding a new secret to agenix
 
-``` bash
+```bash
 cd secrets
 agenix -i /home/ruben/.ssh/agenix/millenium-falcon/id_ed25519 -e secret1.age
 ```
 
 ### Adding a new SSH key to agenix
+
 Add the new public key into `secrets.nix`.
 
-``` bash
+```bash
 # rekey the secrets
 agenix -i /home/ruben/.ssh/agenix/millenium-falcon/id_ed25519 -r
 ```
@@ -112,15 +114,17 @@ agenix -i /home/ruben/.ssh/agenix/millenium-falcon/id_ed25519 -r
 ## Troubleshooting
 
 ### Restarting Waybar manually
+
 After doing a nixos-rebuild which changed some waybar settings, it might be
 necessary to restart the waybar manually to apply the changes.
 
 `systemctl --user restart waybar`
 
 ### Hibernation
+
 Don't forget to set the proper sleep state option (`Linux`) in the BIOS in menu `Config -> Power`.
 
 ### Links
+
 - https://discourse.nixos.org/t/error-after-updating-flakes/34028
 - https://discourse.nixos.org/t/how-to-ensure-all-packages-are-available-in-cache-nixos-org-on-nix-flake-update/37209
-
