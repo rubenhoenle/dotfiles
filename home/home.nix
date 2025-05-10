@@ -66,6 +66,8 @@ in
     # custom scripts
     idea
     weather
+
+    teamspeak3
   ] ++ (if osConfig.ruben.host.work then [
     # work applications
     pkgs.teams-for-linux
