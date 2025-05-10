@@ -9,7 +9,6 @@
         user = "ruben";
         identityFile = [
           "~/.ssh/id_ed25519_sk"
-          "~/.ssh/yubikey-5-usb-c/id_ed25519_sk.pub"
         ];
       };
       mandalore-nixos = {
@@ -19,7 +18,6 @@
         user = "ruben";
         identityFile = [
           "~/.ssh/id_ed25519_sk"
-          "~/.ssh/yubikey-5-usb-c/id_ed25519_sk.pub"
         ];
       };
       mandalore-nixos-initrd = {
@@ -29,7 +27,6 @@
         user = "root";
         identityFile = [
           "~/.ssh/id_ed25519_sk"
-          "~/.ssh/yubikey-5-usb-c/id_ed25519_sk.pub"
         ];
       };
       niklas = {
