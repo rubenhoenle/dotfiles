@@ -1,6 +1,10 @@
 {
   projectRootFile = "flake.nix";
-  programs.nixpkgs-fmt.enable = true;
-  programs.shellcheck.enable = true;
-  programs.stylua.enable = true;
+  settings.global.excludes = [ "*.age" ];
+
+  programs = {
+    nixpkgs-fmt.enable = true;
+    shellcheck.enable = true;
+    stylua.enable = true;
+  };
 }
