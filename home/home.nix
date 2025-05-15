@@ -47,7 +47,7 @@ in
     nix-zsh-completions
     xclip
     btop
-    glow
+    pkgs-unstable.glow
 
     ripgrep
 

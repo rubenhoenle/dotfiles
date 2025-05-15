@@ -1,5 +1,6 @@
 { pkgs, ... }:
 let
+  glow-cfg = "glow -w 0";
   shellAliases = {
     # shortcuts
     ll = "ls -lisa";
@@ -14,7 +15,13 @@ let
     # other stuff
     xclip = "xclip -selection c";
     open = "xdg-open";
-    gloww = "glow README.md";
+
+    glow = "${glow-cfg}";
+    todo = "${glow-cfg} -t ~/notes/TODO.md";
+    gloww = "${glow-cfg} -t README.md";
+    notes = "${glow-cfg} ~/notes";
+    wiki = "${glow-cfg} ~/Developer/wiki";
+
 
     logout = "exec ${pkgs.systemd}/bin/loginctl terminate-user $USER";
 
