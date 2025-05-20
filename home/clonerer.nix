@@ -55,6 +55,16 @@ let
       origin = "git@git.hoenle.xyz:wiki.git";
     }
     {
+      name = "recipes";
+      path = "${gitBasePath}";
+      origin = "git@git.hoenle.xyz:recipes.git";
+    }
+    {
+      name = "ruben-stickers";
+      path = "${gitBasePath}";
+      origin = "git@git.hoenle.xyz:ruben-stickers.git";
+    }
+    {
       name = "Bewerbungsunterlagen";
       path = "${gitBasePath}";
       origin = "git@git.hoenle.xyz:bewerbungsunterlagen.git";
