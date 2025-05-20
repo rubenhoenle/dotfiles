@@ -37,6 +37,8 @@
       lib = nixpkgs.lib;
 
       treefmtEval = treefmt-nix.lib.evalModule pkgs ./treefmt.nix;
+
+      neovim = (import ./pkgs/neovim { inherit pkgs pkgs-unstable lib; });
     in
     {
       formatter.${system} = treefmtEval.config.build.wrapper;
@@ -68,5 +70,7 @@
           })
           (import ./hosts.nix { inherit nixos-hardware disko; })
       );
+
+      packages.x86_64-linux.neovim = neovim;
     };
 }
