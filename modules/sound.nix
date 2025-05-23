@@ -1,5 +1,5 @@
 {
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   # Enable sound with pipewire.
   services.pipewire = {

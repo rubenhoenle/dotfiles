@@ -48,7 +48,7 @@
       search.force = true; # This is required so the build won't fail each time
       isDefault = true;
       name = "default";
-      search.default = "DuckDuckGo";
+      search.default = "ddg"; # DuckDuckGo
       settings = {
         "browser.newtabpage.activity-stream.showSponsored" = false;
         "browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
