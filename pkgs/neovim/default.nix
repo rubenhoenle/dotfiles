@@ -30,7 +30,7 @@ in
 pkgs.wrapNeovimUnstable pkgs.neovim-unwrapped (neovimConfig // {
   wrapperArgs = (lib.escapeShellArgs neovimConfig.wrapperArgs)
     + " --suffix PATH : \"${lib.makeBinPath extraPackages}\""
-    + " --add-flags '--cmd \"set rtp^=${configDir}\"'";
-  #+ " --add-flags '-u ${configDir}/init.lua'";
+    + " --add-flags '--cmd \"set rtp^=${configDir}\"'"
+    + " --add-flags '-u ${configDir}/init.lua'";
   wrapRc = false;
 })
