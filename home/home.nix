@@ -68,6 +68,8 @@ in
     weather
 
     teamspeak3
+
+    neovim
   ] ++ (if osConfig.ruben.host.work then [
     # work applications
     pkgs.teams-for-linux
@@ -110,7 +112,6 @@ in
     ./default-applications.nix
     ./firefox.nix
     ./git.nix
-    ./neovim/neovim.nix
     ./selecterer.nix
     ./shell.nix
     ./ssh.nix
@@ -152,5 +153,8 @@ in
       color-scheme = "prefer-dark";
     };
   };
+
+  # set nvim as the default editor
+  home.sessionVariables = { EDITOR = "nvim"; };
 }
 

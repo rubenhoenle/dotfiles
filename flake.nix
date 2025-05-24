@@ -26,9 +26,15 @@
   outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, agenix, treefmt-nix, nixos-hardware, disko, ... }:
     let
       system = "x86_64-linux";
+      customNeovimOverlay = final: prev: {
+        neovim = self.packages.${system}.neovim;
+      };
+
+
       pkgs = import nixpkgs {
         inherit system;
         config = { allowUnfree = true; };
+        overlays = [ customNeovimOverlay ];
       };
       pkgs-unstable = import nixpkgs-unstable {
         inherit system;
@@ -71,6 +77,6 @@
           (import ./hosts.nix { inherit nixos-hardware disko; })
       );
 
-      packages.x86_64-linux.neovim = neovim;
+      packages.${system}.neovim = neovim;
     };
 }
