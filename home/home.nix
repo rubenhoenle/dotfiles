@@ -8,7 +8,7 @@ let
     ${pkgs.curl}/bin/curl wttr.in
   '';
   fs-mount = pkgs.writeShellScriptBin "fs-mount" ''
-    ${pkgs.sshfs}/bin/sshfs -oport=41524 fileserver@192.168.178.5:/home/fileserver /home/ruben/fileserver
+    ${pkgs.sshfs}/bin/sshfs -oport=41524 ruben@192.168.178.5:/home/ruben/fileserver /home/ruben/fileserver
   '';
   fs-unmount = pkgs.writeShellScriptBin "fs-unmount" ''
     fusermount -u /home/ruben/fileserver
